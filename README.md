@@ -24,9 +24,15 @@ sudo apt-get install ros-kinetic-rtabmap-ros
 Modify in /opt/ros/kinetic/share/rtabmap_ros/launch the file rtabmap.launch
 at row 21 set default = false, at row 22 set deafault = true in order to open the pointcloud map with rviz.
 
-Launch:
+Launch rtabmap:
 roscore
 
 roslaunch freenect_launch freenect.launch depth_registration:=true
 
 roslaunch rtabmap_ros rtabmap.launch rtabmap_args:="--delete_db_on_start"
+
+
+pointcloud topic:  /rtabmap/mapData     type:  rtabmap_ros/MapData
+
+
+run the websocket with: roslaunch rosbridge_server rosbridge_websocket.launch
