@@ -4,9 +4,11 @@
 [submodule "src/mqtt_ros_bridge"]
 	path = src/mqtt_ros_bridge
 	url = https://github.com/EmaroLab/mqtt_ros_bridge.git
+	branch = feature/multiple_subscribe
 [submodule "src/freenect_stack"]
 	path = src/freenect_stack
 	url = https://github.com/EmaroLab/freenect_stack.git
+	branch = master
 [submodule "src/leap_motion"]
 	path = src/leap_motion
 	url = https://github.com/ros-drivers/leap_motion.git
