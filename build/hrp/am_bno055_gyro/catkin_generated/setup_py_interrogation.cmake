@@ -1,6 +1,0 @@
-set(am_bno055_gyro_SETUP_PY_VERSION "0.0.0")
-set(am_bno055_gyro_SETUP_PY_SCRIPTS "")
-set(am_bno055_gyro_SETUP_PY_PACKAGES "am_bno055_gyro")
-set(am_bno055_gyro_SETUP_PY_PACKAGE_DIRS "src/am_bno055_gyro")
-set(am_bno055_gyro_SETUP_PY_MODULES "")
-set(am_bno055_gyro_SETUP_PY_MODULE_DIRS "")
