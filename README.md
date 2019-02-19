@@ -142,7 +142,6 @@ Terminal 5:
 
 ## Recommendations
 While building the system we spotted some limitations in the hand gesture detection due to accuracy of sensors' work and due to user-defined thresholds. The idea to minimize those limitations is to calibrate range of thresholds before use by each user.
-ideas: calibrate range of thresholds according to each user.
 
 ## Authors
 * Adam Berka: berkaadam7@gmail.com
