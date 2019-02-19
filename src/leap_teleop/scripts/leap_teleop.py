@@ -3,12 +3,11 @@
 ## Script that converts the leap motion data into Twist messages by a defined hand-gesture in order to teleoperate a robot
 
 import rospy
+import math
 from leap_motion.msg import leap
 from leap_motion.msg import leapros
 from geometry_msgs.msg import Twist
-from geometry_msgs.msg import Quaternion
-from tf.transformations import quaternion_from_euler
-import math
+from my_msgs.msg import RPY
 
 #teleop_topic = '/cmd_vel_mux/input/teleop'
 teleop_topic = '/turtle1/cmd_vel' # For use with turtlesim
@@ -79,14 +78,10 @@ def callback_ros(data):
     #rospy.loginfo("\n")
     rospy.loginfo(rospy.get_name() + ": Yaw %s" % yaw + ": Pitch %s" % pitch + ": Roll %s" % roll)
     #rospy.loginfo("\n")
-
-    # Convert received yaw, pitch and roll to quaternion
-    q = quaternion_from_euler(msg.ypr.x*math.pi/180,msg.ypr.y*math.pi/180, msg.ypr.z*math.pi/180) # conversion to radians
-    # rospy.loginfo("q=" + str(q[0]) + ";" + str(q[1]) + ";" + str(q[2]) + ";" + str(q[3]))
     
-    # Publish quaternion
-    orientation = Quaternion()
-    orientation.x = q[0]; orientation.y = q[1]; orientation.z = q[2]; orientation.w = q[3];
+    # Publish Roll/Pitch/Yaw
+    orientation = RPY()
+    orientation.roll = roll; orientation.pitch = pitch; orientation.yaw = yaw;
     pub_orientation.publish(orientation)
 
 
@@ -96,7 +91,7 @@ def listener():
     rospy.init_node('leap_sub', anonymous=True)
     rospy.Subscriber("leapmotion/data", leapros, callback_ros)
     pub_teleop = rospy.Publisher(teleop_topic, Twist, queue_size=1)
-    pub_orientation = rospy.Publisher(orientation_topic, Quaternion, queue_size=1) 
+    pub_orientation = rospy.Publisher(orientation_topic, RPY, queue_size=1) 
     
     rospy.spin()
 
