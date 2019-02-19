@@ -28,25 +28,22 @@ pitch_high_range = 20
 roll_low_range = -50
 roll_high_range = 80
 
+def sendOrientation(yaw,pitch,roll):
+    # Publish Roll/Pitch/Yaw
+    orientation = RPY()
+    orientation.roll = roll; orientation.pitch = pitch; orientation.yaw = yaw;
+    pub_orientation.publish(orientation)
+    #rospy.loginfo(rospy.get_name() + ": Yaw %s" % yaw + ": Pitch %s" % pitch + ": Roll %s" % roll)
+    #rospy.loginfo("\n")
 
-# Callback of the ROS subscriber
-def callback_ros(data):
-    global pub
 
-    msg = leapros()
-    msg = data
-    
-    yaw = msg.ypr.z
-    pitch = msg.ypr.y
-    roll = msg.ypr.x
-
+def sendTeleop(yaw,pitch,roll):
+    # Just sending Twist messages
     twist = Twist()
 
     twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0
     twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0
 
-#Just sending Twist message
-   
     if(pitch < pitch_low_range and pitch > pitch_low_range - 30 ):
 	    twist.linear.x = high_speed; twist.linear.y = 0; twist.linear.z = 0
 	    twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0
@@ -70,19 +67,20 @@ def callback_ros(data):
             #rospy.loginfo("Roll right")
     
     
-
-
     pub_teleop.publish(twist) # Publish the Twist messages to the turtlesim
 
-    #rospy.loginfo(rospy.get_name() + ": Roll %s" % msg.ypr.x)
-    #rospy.loginfo("\n")
-    rospy.loginfo(rospy.get_name() + ": Yaw %s" % yaw + ": Pitch %s" % pitch + ": Roll %s" % roll)
-    #rospy.loginfo("\n")
+# Callback of the ROS subscriber
+def callback_ros(data):
+
+    msg = leapros()
+    msg = data
     
-    # Publish Roll/Pitch/Yaw
-    orientation = RPY()
-    orientation.roll = roll; orientation.pitch = pitch; orientation.yaw = yaw;
-    pub_orientation.publish(orientation)
+    yaw = msg.ypr.z
+    pitch = msg.ypr.y
+    roll = msg.ypr.x
+    
+    sendOrientation(yaw,pitch,roll)
+    sendTeleop(yaw,pitch,roll) # Comment this line if you are not using turtlesim
 
 
 # Listens to: leapmotion/data
