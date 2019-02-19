@@ -16,14 +16,14 @@ This branch is about creating a project to teleoperate a robot using a Leap Moti
 Hands and fingers motions.
 
 ##### Internal working
-Images taken by two cameras are analyzed to reconsctruct a 3D representation of what the device sees. Tracking algorithms interpret the 3D data and infer the pitch and the roll of occluded objects. Tresholds for commands are:
+Images taken by two cameras are analyzed to reconstruct a 3D representation of what the device sees. Tracking algorithms interpret the 3D data and infer the pitch and the roll of occluded objects. Thresholds for commands are:
   * pitch
   -50 to -20 degrees
   * roll
   -100 to -50 and 80 to 130 degrees
   
 ##### Outputs
-Outputs are commands for robot. When gesture command will be in pitch treshold, value 0.5 (move forward) will be send to the robot. When gesture command will be in lower treshold of roll, value -0.5 (turn right) will be send to the robot. Value 0.5 (turn left) will be send when gesture command will be in higher tershold for roll.
+Outputs are commands for robot. When gesture command will be in pitch threshold, value 0.5 (move forward) will be send to the robot. When gesture command will be in lower threshold of roll, value -0.5 (turn right) will be send to the robot. Value 0.5 (turn left) will be send when gesture command will be in higher tershold for roll.
 
 ## Implementation
 
