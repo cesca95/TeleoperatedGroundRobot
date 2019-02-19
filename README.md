@@ -29,7 +29,7 @@ Outputs are commands for robot. When gesture command will be in pitch threshold,
 
 ### Prerequisites
 * Leap Motion controller
-* USB cabel
+* USB cable
 * Ubuntu 16.04 LTS
 * ROS Kinetic
 * Leap Motion SDK
@@ -40,7 +40,7 @@ Outputs are commands for robot. When gesture command will be in pitch threshold,
 2. Open Terminal on the extracted location and install the DEB using: 
 
     ```
-    sudp dpkg -install Leap-*-x64.deb
+    sudo dpkg -install Leap-*-x64.deb
     ```
 
 More detailed installation and debugging are [here](https://support.leapmotion.com/hc/en-us/articles/223782608-Linux-Installation)
@@ -51,7 +51,7 @@ More detailed installation and debugging are [here](https://support.leapmotion.c
     dmesg
     ```
     
-4. Invoke Leap Motion controller manager by ececuting the following command:
+4. Invoke Leap Motion controller manager by executing the following command:
 
     ```
     sudo LeapControlPanel
@@ -141,8 +141,8 @@ Terminal 5:
 [Simulation with Turtlesim ](https://youtu.be/OcLwWefhjv0)
 
 ## Recommendations
-While building the system we spotted some limitations in the hand gesture detection due to accuracy of sensors' work and due to user-defined tresholds. The idea to minimalize those limitations is to calibrate range of tresholds before use by each user.
-ideas: calibrate range of tresholds addording to each user.
+While building the system we spotted some limitations in the hand gesture detection due to accuracy of sensors' work and due to user-defined thresholds. The idea to minimize those limitations is to calibrate range of thresholds before use by each user.
+ideas: calibrate range of thresholds according to each user.
 
 ## Authors
 * Adam Berka: berkaadam7@gmail.com
