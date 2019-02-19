@@ -13,18 +13,17 @@ It describes what the project wants to achieve and defines the key terminologies
 This branch is about creating a project to teleoperate a robot using a Leap Motion controller with hand gestures.
 
 ##### Inputs
-
-Hand and fingers motions.
+Hands and fingers motions.
 
 ##### Internal working
-
-Images taken by two cameras are analyzed to reconctruct a 3D representation of what the device sees. Tracking algorithms interprat the 3D data and infer the pitch and the roll of occluded objects. Tresholds for commands are:
+Images taken by two cameras are analyzed to reconsctruct a 3D representation of what the device sees. Tracking algorithms interpret the 3D data and infer the pitch and the roll of occluded objects. Tresholds for commands are:
   * pitch
   -50 to -20 degrees
   * roll
   -100 to -50 and 80 to 130 degrees
+  
 ##### Outputs
-Outputs are commands for robot. When gesture command will be in pitch treshold, value 0.5 (move forward) will be send to robot. When gesture command will be in lower treshold of roll, value -0.5 (turn right) will be send to robot. Value 0.5 (turn left) will be send when gesture command will be in higher tershold for roll.
+Outputs are commands for robot. When gesture command will be in pitch treshold, value 0.5 (move forward) will be send to the robot. When gesture command will be in lower treshold of roll, value -0.5 (turn right) will be send to the robot. Value 0.5 (turn left) will be send when gesture command will be in higher tershold for roll.
 
 ## Implementation
 
@@ -58,51 +57,52 @@ More detailed installation and debugging are [here](https://support.leapmotion.c
     sudo LeapControlPanel
     ```
 
-5. If you want to start just driver, you can use the following command:
+5. If you want to start just the driver, you can use the following command:
 
     ```
     sudo leapd
     ```
     
-6. Use this command to restart the driver
+6. Use this commands to restart the driver
 
     ```
     sudo service leapd stop
+    sudo service leapd start
     ```
     
-#### Installin the ROS driver for the Leap Motion controller
+#### Installing the ROS driver for the Leap Motion controller
 1. Download ROS driver
 
     ```
     git clone https://github.com/ros-drivers/leap_motion
     ```
     
-2. Set the path of the Leap Motion SDK in the .bashrc file. Assuming that the Leap SDK is in the user's home folder with the name LeapSDK, we have to set the path variable in .bashrc as follows.
+2. Set the path of the Leap Motion SDK in the `.bashrc` file. Assuming that the Leap SDK is in the user's `home` folder with the name `LeapSDK`, we have to set the path variable in `.bashrc` as follows.
 
     ```
     export LEAP_SDK=$LEAP_SDK:$HOME/LeapSDK
     ```
     
-3.  We also have to add the path of the Python extension of the Leap Motion SDK to .bashrc.
+3.  We also have to add the path of the Python extension of the Leap Motion SDK to `.bashrc`.
 
     ```
     export PYTHONPATH=$PYTHONPATH:$HOME/LeapSDK/lib:$HOME/LeapSDK/lib/x64
     ```
     
-4. In new terminal copy the libLeap.so file to /usr/local/lib. Here is how we do it:
+4. In new terminal copy the `libLeap.so` file to `/usr/local/lib`. Here is how we do it:
 
     ```
     sudo cp $LEAP_SDK/lib/x64/libLeap.so /usr/local/lib 
     ```
     
-5. After copying, execute ldconfig:
+5. After copying, execute `ldconfig`:
 
     ```
     sudo ldconfig
     ```
     
-6. Create a ROS workspace or copy the leap_motion package to an existing ROS workspace and use catkin_make
-You can use the following command to install the leap_motion package:
+6. Create a ROS workspace or copy the `leap_motion` package to an existing ROS workspace and use `catkin_make`
+You can use the following command to install the `leap_motion` package:
 
     ```
     catkin_make install --pkg leap_motion
@@ -141,15 +141,12 @@ Terminal 5:
 [Simulation with Turtlesim ](https://youtu.be/OcLwWefhjv0)
 
 ## Recommendations
-Limitations from sensors, accuracy of the hand gesture detection by user-defined tresholds. 
+While building the system we spotted some limitations in the hand gesture detection due to accuracy of sensors' work and due to user-defined tresholds. The idea to minimalize those limitations is to calibrate range of tresholds before use by each user.
 ideas: calibrate range of tresholds addording to each user.
-
-The Recommendations follow naturally from the conclusions. They describe: the assumptions made while building the system (and/or) the limitations of the working system. Therefore, presenting possible ideas that could overcome the limitations or assumptions. 
 
 ## Authors
 * Adam Berka: berkaadam7@gmail.com
 * Nicolas Dejon: nicolas.dejon@etu.utc.fr
-
 
 # hrp_teleoperation_old
 
