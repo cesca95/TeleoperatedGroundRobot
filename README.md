@@ -31,7 +31,7 @@ Outputs are commands for robot. When gesture command will be in pitch threshold,
 * Leap Motion controller
 * USB cabel
 * Ubuntu 16.04 LTS
-* ROS Kinectic
+* ROS Kinetic
 * Leap Motion SDK
 
 ### How to run the project
