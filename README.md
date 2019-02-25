@@ -35,4 +35,5 @@ roslaunch rtabmap_ros rtabmap.launch rtabmap_args:="--delete_db_on_start"
 pointcloud topic:  /rtabmap/mapData     type:  rtabmap_ros/MapData
 
 
-run the websocket with: roslaunch rosbridge_server rosbridge_websocket.launch
+run the websocket with: 
+roslaunch rosbridge_server rosbridge_websocket.launch
