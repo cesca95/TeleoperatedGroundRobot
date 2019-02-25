@@ -14,7 +14,7 @@ This module is implemented on the machine running linux by exploiting an existin
 For more information visit the following links:
 [RTAB-Map](http://introlab.github.io/rtabmap/)
 [Ros Wiki](http://wiki.ros.org/rtabmap_ros)
-[GitHub Repo](https://github.com/introlab/rtabmap_ros) 		<optional>
+[GitHub Repo](https://github.com/introlab/rtabmap_ros)
 
 As the documentation shows, RTAB-Map is composed of differents nodes but this projects will only require the use of the "rtabmap" one.
 
@@ -27,7 +27,7 @@ The ouputs are the messages published on the different ros topics, in particular
 
 
 #### Unity visualization of a 3d point cloud map
-This modules is implemented on the machine running windows and provides a platform on which visualize the point cloud map put together by the SLAM algorithm module
+This modules is implemented on the machine running windows and provides a platform on which visualize the point cloud map put together by the SLAM algorithm module. Unity will visualize the map and provide the connection with the oculus with all the relative scripts to link the game camera with the movement of the oculus 
 #### Oculus 
 
 ##### Inputs
