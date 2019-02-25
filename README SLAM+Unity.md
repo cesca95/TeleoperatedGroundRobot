@@ -13,8 +13,10 @@ It describes what the project wants to achieve and defines the key terminologies
 This module is implemented on the machine running linux by exploiting an existing package available on the ros documentation, a ROS wrapper of RTAB-Map(Real-Time Appearance-Based Mapping). This package can be used to generate a 3D point clouds of the environment as was done in this project. 
 For more information visit the following links:
 [RTAB-Map](http://introlab.github.io/rtabmap/)
+
 [Ros Wiki](http://wiki.ros.org/rtabmap_ros)
-[GitHub Repo](https://github.com/introlab/rtabmap_ros)
+
+[GitHub Repo](https://github.com/introlab/rtabmap_ros) 		<optional>
 
 As the documentation shows, RTAB-Map is composed of differents nodes but this projects will only require the use of the "rtabmap" one.
 
