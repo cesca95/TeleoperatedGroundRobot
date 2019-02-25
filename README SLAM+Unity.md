@@ -13,8 +13,10 @@ It describes what the project wants to achieve and defines the key terminologies
 This module is implemented on the machine running Linux by exploiting an existing package available on the ROS documentation, a ROS wrapper of RTAB-Map(Real-Time Appearance-Based Mapping). This package can be used to generate a 3D point clouds of the environment as was done in this project. 
 For more information visit the following links:
 
-[RTAB-Map](http://introlab.github.io/rtabmap/)			
-[Ros Wiki](http://wiki.ros.org/rtabmap_ros)			
+[RTAB-Map](http://introlab.github.io/rtabmap)
+
+[ROS Wiki](http://wiki.ros.org/rtabmap_ros)
+
 [GitHub Repo](https://github.com/introlab/rtabmap_ros)
 
 As the documentation shows, RTAB-Map is composed of differents nodes but this projects will only require the use of the "rtabmap" one.
@@ -26,9 +28,9 @@ To establish the connection between the two machines it was chosen [rosbridge](h
 ##### Inputs
 The inputs are the images taken by the kinect 2 v2 in RGB-D format, which is a combination of a RGB image and its corresponding depth image.
 ##### Internal working
-RTAB-Map takes the RGB-D images and publish them as ros messages under different topics as shown in the documentation [here](http://wiki.ros.org/rtabmap_ros#rtabmap). 
+RTAB-Map takes the RGB-D images and publishes them as ROS messages under different topics as shown in the documentation [here](http://wiki.ros.org/rtabmap_ros#rtabmap). 
 ##### Outputs
-The ouputs are the messages published on the different ros topics, in particular we are interested on the ```/rtabmap/mapData``` topic on which is published the 3D point cloud map of the enviroment. The map can be visualized in Rviz, which will be launched automatically with the required settings to visualize the map, in order to make a pre check before starting to send the data stream to Unity via a websocket.
+The ouputs are the messages published on the different ROS topics, in particular we are interested on the ```/rtabmap/mapData``` topic on which is published the 3D point cloud map of the enviroment. The map can be visualized in Rviz, which will be launched automatically with the required settings to visualize the map, in order to make a pre check before starting to send the data stream to Unity via a websocket.
 
 
 #### Unity visualization of a 3D point cloud map
@@ -38,7 +40,7 @@ This modules is implemented on the machine running windows and provides a platfo
 Unity receives the ROS messages of the ```/rtabmap/mapData``` topic via the websocket.
 
 ##### Internal working
-The data stream is processed by a script tuned to convert the ros message received in an image visualizable on the Unity scene.
+The data stream is processed by a script tuned to convert the ROS message received in an image visualizable on the Unity scene.
   
 ##### Outputs
 The outputs will be the 3D point cloud map visualized on the Unity scene which will also be visualized by the connected oculus.
