@@ -9,7 +9,7 @@ It describes what the project wants to achieve and defines terminologies. Presen
 It describes what the project wants to achieve and defines the key terminologies of this project. Presents the hardware or tools used in the project.
 
 ### Description of the Modules
-#### SLAM algorithm implementation
+#### SLAM algorithm mapping
 This module is implemented on the machine running linux by exploiting an existing package available on the ros documentation, a ROS wrapper of RTAB-Map(Real-Time Appearance-Based Mapping). This package can be used to generate a 3D point clouds of the environment as was done in this project. 
 For more information visit the following links:
 [RTAB-Map](http://introlab.github.io/rtabmap/)
@@ -25,31 +25,68 @@ The inputs are the images taken by the kinect v2 in RGB-D format, which is a com
 ##### Internal working
 RTAB-Map takes the RGB-D images and publish it as ros messages under different topics as shown in the documentation [here](http://wiki.ros.org/rtabmap_ros#rtabmap). 
 ##### Outputs
-The ouputs are the messages published on the different ros topics, in particular we are interested on the "/rtabmap/mapData" topic on which is published the 3d point cloud map of the enviroment. The map can be visualized in Rviz, which will be launched automatically with the required settings to visualize the map, in order to make a pre check before starting to send the data stream to unity.
+The ouputs are the messages published on the different ros topics, in particular we are interested on the "/rtabmap/mapData" topic on which is published the 3d point cloud map of the enviroment. The map can be visualized in Rviz, which will be launched automatically with the required settings to visualize the map, in order to make a pre check before starting to send the data stream to unity via a websocket.
 
 
 #### Unity visualization of a 3d point cloud map
-This modules is implemented on the machine running windows and provides a platform on which visualize the point cloud map put together by the SLAM algorithm module. Unity will visualize the map and provide the connection with the oculus with all the relative scripts to link the game camera with the movement of the oculus 
-#### Oculus 
+This modules is implemented on the machine running windows and provides a platform on which visualize the point cloud map put together by the SLAM algorithm module. Unity will visualize the map and provide the connection with the oculus with all the relative scripts to link the game camera with the movement of the oculus.
 
-##### Inputs
-
+##### Inputs 
+Unity receives the ROS messages of the "/rtabmap/mapData" topic via the websocket.
 
 ##### Internal working
-
+The data stream is processed by a script tuned to convert the ros message received in an image visualizable on the Unity scene.
   
 ##### Outputs
-
+The outputs will be the 3d point cloud map visualized on the Unity scene which will also be visualized by the connected oculus.
 
 
 ## Implementation
 
 ### Prerequisites
 It describes all hardwares and softwares that are required for running the system.
+## LINUX SIDE 
+* Microsoft XBOX ONE KINECT 2 V2 with relatives connection cable
+* Ubuntu 16.04 LTS
+* ROS Kinetic
+* RTAB-Map package
+* Freenect2 libraries 
+
+## WINDOWS SIDE
+* Oculus rift Developer Kit 2
+* Unity 2018.
+* Oculus SDK
+* Oculus APP
+* Unity project
+
 
 ### How to run the project
 It describes step by step how to download and run the project on a new computer.
 
+## LINUX SIDE 
+Install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)         NECESSARY??
+
+Install rtabmap using the following command:
+```
+sudo apt-get install ros-kinetic-rtabmap-ros
+```
+Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch``` the file ```rtabmap.launch```
+at row 21 set ```default = false```, at row 22 set ```default = true``` in order to open the pointcloud map with Rviz.
+
+In order to install freenect2 libraries follow the README instructions [here](https://github.com/OpenKinect/libfreenect2)
+
+Now you're ready to launch RTAB-Map. Open a terminal and launch ```ROSCORE```
+In a new terminal type: 
+```roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true```
+In a third terminal type:
+```roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd```
+
+
+
+
+
+## WINDOWS SIDE
+Start by downloading the repository with the unity code [here](github unity repo link)
 ## Results
 It presents the result using (images or videos) of the working system, in (real or simulation).
 
@@ -98,6 +135,8 @@ For example: Please do a ```catkin_make ```, once you have modified your code.
 
 #http://wiki.ros.org/rtabmap_ros
 
+sudo apt-get install ros-kinetic-libfreenect
+
 In order to install and launch rtabmap:
 
 sudo apt-get install ros-kinetic-rtabmap-ros
@@ -117,3 +156,8 @@ pointcloud topic:  /rtabmap/mapData     type:  rtabmap_ros/MapData
 
 
 run the websocket with: roslaunch rosbridge_server rosbridge_websocket.launch
+
+Kinect v2
+
+roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true
+
