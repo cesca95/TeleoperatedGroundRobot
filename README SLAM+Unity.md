@@ -45,14 +45,14 @@ The outputs will be the 3d point cloud map visualized on the Unity scene which w
 
 ### Prerequisites
 It describes all hardwares and softwares that are required for running the system.
-## LINUX SIDE 
+#### LINUX SIDE 
 * Microsoft XBOX ONE KINECT 2 V2 with relatives connection cable
 * Ubuntu 16.04 LTS
 * ROS Kinetic
 * RTAB-Map package
 * Freenect2 libraries 
 
-## WINDOWS SIDE
+#### WINDOWS SIDE
 * Oculus rift Developer Kit 2
 * Unity 2018.
 * Oculus SDK
@@ -63,7 +63,7 @@ It describes all hardwares and softwares that are required for running the syste
 ### How to run the project
 It describes step by step how to download and run the project on a new computer.
 
-## LINUX SIDE 
+#### LINUX SIDE 
 Install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)         NECESSARY??
 
 Install rtabmap using the following command:
@@ -76,8 +76,10 @@ at row 21 set ```default = false```, at row 22 set ```default = true``` in order
 In order to install freenect2 libraries follow the README instructions [here](https://github.com/OpenKinect/libfreenect2)
 
 Now you're ready to launch RTAB-Map. Open a terminal and launch ```ROSCORE```
+
 In a new terminal type: 
 ```roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true```
+
 In a third terminal type:
 ```roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd```
 
@@ -85,7 +87,7 @@ In a third terminal type:
 
 
 
-## WINDOWS SIDE
+#### WINDOWS SIDE
 Start by downloading the repository with the unity code [here](github unity repo link)
 ## Results
 It presents the result using (images or videos) of the working system, in (real or simulation).
