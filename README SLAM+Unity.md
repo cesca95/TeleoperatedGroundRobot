@@ -90,11 +90,14 @@ In order to insall the rosbridge_suite use the command below:
 Now, after having plugged in your kinect, you're ready to launch RTAB-Map. Open a terminal and launch ```ROSCORE```
 
 In a new terminal type the command to initialize the RGB and depth sensors: 
-```roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true```
+```
+roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true```
 
 
 In a third terminal type the command to start the mapping mode:
-```roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd```
+```
+roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd
+```
 
 
 The last thing to do is to set up the websocket necessary to send the data stream to unity. Please rememeber that in order for the websocket to successfully connect the two machines they must be connected to the same network.
