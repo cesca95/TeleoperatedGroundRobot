@@ -19,17 +19,21 @@ For more information visit the following links:
 [GitHub Repo](https://github.com/introlab/rtabmap_ros) 		<optional>
 
 As the documentation shows, RTAB-Map is composed of differents nodes but this projects will only require the use of the "rtabmap" one.
+In order for the kinect 2 v2 to work as needed it is necessary to install the [libfreenect2](https://github.com/OpenKinect/libfreenect2) and the [IAI Kinect2](https://github.com/code-iai/iai_kinect2) drivers.
+
+To establish the connection between the two machines it was chosen [rosbridge](http://wiki.ros.org/rosbridge_suite) which provides a JSON interface to ROS, allowing any client to send JSON to publish or subscribe to ROS topics, call ROS services, and more.
+
 
 ##### Inputs
-The inputs are the images taken by the kinect v2 in RGB-D format, which is a combination of a RGB image and its corresponding depth image.
+The inputs are the images taken by the kinect 2 v2 in RGB-D format, which is a combination of a RGB image and its corresponding depth image.
 ##### Internal working
-RTAB-Map takes the RGB-D images and publish it as ros messages under different topics as shown in the documentation [here](http://wiki.ros.org/rtabmap_ros#rtabmap). 
+RTAB-Map takes the RGB-D images and publish them as ros messages under different topics as shown in the documentation [here](http://wiki.ros.org/rtabmap_ros#rtabmap). 
 ##### Outputs
-The ouputs are the messages published on the different ros topics, in particular we are interested on the "/rtabmap/mapData" topic on which is published the 3d point cloud map of the enviroment. The map can be visualized in Rviz, which will be launched automatically with the required settings to visualize the map, in order to make a pre check before starting to send the data stream to unity via a websocket.
+The ouputs are the messages published on the different ros topics, in particular we are interested on the ```/rtabmap/mapData``` topic on which is published the 3D point cloud map of the enviroment. The map can be visualized in Rviz, which will be launched automatically with the required settings to visualize the map, in order to make a pre check before starting to send the data stream to Unity via a websocket.
 
 
-#### Unity visualization of a 3d point cloud map
-This modules is implemented on the machine running windows and provides a platform on which visualize the point cloud map put together by the SLAM algorithm module. Unity will visualize the map and provide the connection with the oculus with all the relative scripts to link the game camera with the movement of the oculus.
+#### Unity visualization of a 3D point cloud map
+This modules is implemented on the machine running windows and provides a platform on which visualize the point cloud map put together by the SLAM mapping module. Unity will visualize the map and provide the connection with the oculus with all the relative scripts to link the game camera with the movement of the oculus.
 
 ##### Inputs 
 Unity receives the ROS messages of the ```/rtabmap/mapData``` topic via the websocket.
@@ -38,7 +42,7 @@ Unity receives the ROS messages of the ```/rtabmap/mapData``` topic via the webs
 The data stream is processed by a script tuned to convert the ros message received in an image visualizable on the Unity scene.
   
 ##### Outputs
-The outputs will be the 3d point cloud map visualized on the Unity scene which will also be visualized by the connected oculus.
+The outputs will be the 3D point cloud map visualized on the Unity scene which will also be visualized by the connected oculus.
 
 
 ## Implementation
@@ -50,9 +54,9 @@ It describes all hardwares and softwares that are required for running the syste
 * Ubuntu 16.04 LTS
 * ROS Kinetic
 * RTAB-Map package
-* Freenect2 libraries 
-* IAI Kinect2
-* rosbridge_suite
+* libfreenect2 drivers
+* IAI Kinect2 drivers
+* Rosbridge_suite
 
 #### WINDOWS SIDE
 * Oculus rift Developer Kit 2
