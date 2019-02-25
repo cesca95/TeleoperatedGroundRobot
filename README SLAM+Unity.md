@@ -62,9 +62,9 @@ It describes all hardwares and softwares that are required for running the syste
 #### WINDOWS SIDE
 * Oculus rift Developer Kit 2
 * Unity 2018.
-* Oculus SDK
+* Oculus Runtime v0.8.0.0
 * Oculus APP
-* Unity project
+* Unity project files
 
 
 ### How to run the project
@@ -88,7 +88,7 @@ In order to install freenect2 libraries follow the README's instructions [here](
 
 In order to install IAI Kinect2 libraries follow the README's instructions [here](https://github.com/code-iai/iai_kinect2)
 
-In order to insall the rosbridge_suite use the command below:
+In order to install the rosbridge_suite use the command below:
 ```
 sudo apt-get install ros-kinetic-rosbridge-suite 
 ```
@@ -110,12 +110,12 @@ roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd
 
 The last thing to do is to set up the websocket necessary to send the data stream to unity. Please rememeber that in order for the websocket to successfully connect the two machines they must be connected to the same network.
 
-To launch the websocket run:
+To launch the websocket run in a new terminal:
 ``` roslaunch rosbridge_server rosbridge_websocket.launch ```
 
 
 #### WINDOWS SIDE
-Start by downloading the repository with the unity code [here](github unity repo link). Connect the Oculus via Open the project and when the websocket on the Linux machine is up and running click on play.
+Start by downloading the repository with the unity code [here](github unity repo link). Plug the oculus in the computerand then open the project. When the websocket on the Linux machine is up and running click on play.
 ## Results
 It presents the result using (images or videos) of the working system, in (real or simulation).
 
