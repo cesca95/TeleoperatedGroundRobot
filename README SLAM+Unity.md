@@ -32,7 +32,7 @@ The ouputs are the messages published on the different ros topics, in particular
 This modules is implemented on the machine running windows and provides a platform on which visualize the point cloud map put together by the SLAM algorithm module. Unity will visualize the map and provide the connection with the oculus with all the relative scripts to link the game camera with the movement of the oculus.
 
 ##### Inputs 
-Unity receives the ROS messages of the "/rtabmap/mapData" topic via the websocket.
+Unity receives the ROS messages of the ```/rtabmap/mapData``` topic via the websocket.
 
 ##### Internal working
 The data stream is processed by a script tuned to convert the ros message received in an image visualizable on the Unity scene.
@@ -51,6 +51,7 @@ It describes all hardwares and softwares that are required for running the syste
 * ROS Kinetic
 * RTAB-Map package
 * Freenect2 libraries 
+* IAI Kinect2
 
 #### WINDOWS SIDE
 * Oculus rift Developer Kit 2
@@ -70,25 +71,31 @@ Install rtabmap using the following command:
 ```
 sudo apt-get install ros-kinetic-rtabmap-ros
 ```
-Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch``` the file ```rtabmap.launch```
-at row 21 set ```default = false```, at row 22 set ```default = true``` in order to open the pointcloud map with Rviz.
+Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch``` the file ```rgbd_mapping_kinect2.launch```, at row 25 set ```default = "true"```, at row 26 set ```default = "false"``` in order to open the pointcloud map with Rviz. 
+
+Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch/config``` the file ```rgbd.rviz```, at row 76 substitute ```/voxel_cloud``` with ```/rtabmap/cloud_map``` in order to visualize the correct topic from the beginning.
+
+Note: remember to open the files as sudo in order to being able to modify and save the file
+
 
 In order to install freenect2 libraries follow the README instructions [here](https://github.com/OpenKinect/libfreenect2)
 
-Now you're ready to launch RTAB-Map. Open a terminal and launch ```ROSCORE```
+In order to install IAI Kinect2 libraries follow the README instructions [here](https://github.com/code-iai/iai_kinect2)
+
+Now, after having plugged in your kinect, you're ready to launch RTAB-Map. Open a terminal and launch ```ROSCORE```
 
 In a new terminal type: 
 ```roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true```
+The above command initializes the RGB and depth sensors
 
 In a third terminal type:
 ```roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd```
-
-
+The above command starts the mapping mode
 
 
 
 #### WINDOWS SIDE
-Start by downloading the repository with the unity code [here](github unity repo link)
+Start by downloading the repository with the unity code [here](github unity repo link). Connect the Oculus via Open the project and click on play
 ## Results
 It presents the result using (images or videos) of the working system, in (real or simulation).
 
@@ -96,9 +103,8 @@ It presents the result using (images or videos) of the working system, in (real 
 The Recommendations follow naturally from the conclusions. They describe: the assumptions made while building the system (and/or) the limitations of the working system. Therefore, presenting possible ideas that could overcome the limitations or assumptions. 
 
 ## Authors
-* FirstName LastName: email@email.com
-* FirstName LastName: email@email.com
-* FirstName LastName: email@email.com
+* Enrico Casagrande: erri.casagrande@gmail.com
+* Alberto Ghiotto: alberto.ghiotto@hotmail.it
 
 # Useful GitHub readme syntax
 
