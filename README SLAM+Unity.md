@@ -84,14 +84,17 @@ In order to install freenect2 libraries follow the README's instructions [here](
 In order to install IAI Kinect2 libraries follow the README's instructions [here](https://github.com/code-iai/iai_kinect2)
 
 In order to insall the rosbridge_suite use the command below:
-``` sudo apt-get install ros-kinetic-rosbridge-suite ```
+```
+sudo apt-get install ros-kinetic-rosbridge-suite 
+```
 
 
 Now, after having plugged in your kinect, you're ready to launch RTAB-Map. Open a terminal and launch ```ROSCORE```
 
 In a new terminal type the command to initialize the RGB and depth sensors: 
 ```
-roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true```
+roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true
+```
 
 
 In a third terminal type the command to start the mapping mode:
