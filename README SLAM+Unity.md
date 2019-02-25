@@ -52,6 +52,7 @@ It describes all hardwares and softwares that are required for running the syste
 * RTAB-Map package
 * Freenect2 libraries 
 * IAI Kinect2
+* rosbridge_suite
 
 #### WINDOWS SIDE
 * Oculus rift Developer Kit 2
@@ -65,7 +66,7 @@ It describes all hardwares and softwares that are required for running the syste
 It describes step by step how to download and run the project on a new computer.
 
 #### LINUX SIDE 
-Install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)         NECESSARY??
+If you don't already have it, install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 
 Install rtabmap using the following command:
 ```
@@ -75,27 +76,35 @@ Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch``` the file ```rgbd_mappi
 
 Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch/config``` the file ```rgbd.rviz```, at row 76 substitute ```/voxel_cloud``` with ```/rtabmap/cloud_map``` in order to visualize the correct topic from the beginning.
 
-Note: remember to open the files as sudo in order to being able to modify and save the file
+Note: remember to open the files as sudo in order to being able to modify and save them.
 
 
-In order to install freenect2 libraries follow the README instructions [here](https://github.com/OpenKinect/libfreenect2)
+In order to install freenect2 libraries follow the README's instructions [here](https://github.com/OpenKinect/libfreenect2)
 
-In order to install IAI Kinect2 libraries follow the README instructions [here](https://github.com/code-iai/iai_kinect2)
+In order to install IAI Kinect2 libraries follow the README's instructions [here](https://github.com/code-iai/iai_kinect2)
+
+In order to insall the rosbridge_suite use the command below:
+``` sudo apt-get install ros-kinetic-rosbridge-suite ```
+
 
 Now, after having plugged in your kinect, you're ready to launch RTAB-Map. Open a terminal and launch ```ROSCORE```
 
-In a new terminal type: 
+In a new terminal type the command to initialize the RGB and depth sensors: 
 ```roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true```
-The above command initializes the RGB and depth sensors
 
-In a third terminal type:
+
+In a third terminal type the command to start the mapping mode:
 ```roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd```
-The above command starts the mapping mode
 
+
+The last thing to do is to set up the websocket necessary to send the data stream to unity. Please rememeber that in order for the websocket to successfully connect the two machines they must be connected to the same network.
+
+To launch the websocket run:
+``` roslaunch rosbridge_server rosbridge_websocket.launch ```
 
 
 #### WINDOWS SIDE
-Start by downloading the repository with the unity code [here](github unity repo link). Connect the Oculus via Open the project and click on play
+Start by downloading the repository with the unity code [here](github unity repo link). Connect the Oculus via Open the project and when the websocket on the Linux machine is up and running click on play.
 ## Results
 It presents the result using (images or videos) of the working system, in (real or simulation).
 
