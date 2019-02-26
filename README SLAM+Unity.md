@@ -9,7 +9,7 @@ It describes what the project wants to achieve and defines terminologies. Presen
 It describes what the project wants to achieve and defines the key terminologies of this project. Presents the hardware or tools used in the project.
 
 ### Description of the Modules
-#### SLAM algorithm mapping
+#### SLAM approach
 This module is implemented on the machine running Linux by exploiting an existing package available on the ROS documentation, a ROS wrapper of RTAB-Map(Real-Time Appearance-Based Mapping). This package can be used to generate a 3D point clouds of the environment as was done in this project. 
 For more information visit the following links:
 
@@ -30,11 +30,11 @@ The inputs are the images acquired by the kinect 2 v2 in RGB-D format, which is 
 ##### Internal working
 RTAB-Map takes the RGB-D images and publishes them as ROS messages under different topics as shown in the documentation [here](http://wiki.ros.org/rtabmap_ros#rtabmap). 
 ##### Outputs
-The outputs are the messages published on the different ROS topics, in particular we are interested on the ```/rtabmap/mapData``` topic on which is published the 3D point cloud map of the enviroment. The map can be visualized in Rviz, which will be launched automatically with the required settings to visualize the map, in order to make a pre check before starting to send the data stream to Unity via a websocket.
+The outputs are the messages published on the different ROS topics, in particular we are interested on the ```/rtabmap/mapData``` topic on which is published the 3D point cloud map of the environment. The map can be visualized in Rviz, which will be launched automatically with the required settings to visualize the map, in order to make a pre check before starting to send the data stream to Unity via a websocket.
 
 
 #### Unity visualization of a 3D point cloud map
-This modules is implemented on the machine running windows and provides a platform on which visualize the point cloud map put together by the SLAM mapping module. Unity will visualize the map and provide the connection with the oculus with all the relative scripts to link the game camera with the movement of the oculus.
+This module is implemented on the machine running windows and provides a platform on which visualize the point cloud map put together by the SLAM module. Unity will visualize the map and provide the connection with the oculus with all the relative scripts to link the game camera with the movement of the oculus.
 
 ##### Inputs 
 Unity receives the ROS messages of the ```/rtabmap/mapData``` topic via the websocket.
