@@ -49,9 +49,9 @@ The outputs will be the 3D point cloud map visualized on the Unity scene which w
 ## Implementation
 
 ### Prerequisites
-It describes all hardwares and softwares that are required for running the system.
+It describes all the hardware and software required for running the system.
 #### LINUX SIDE 
-* Microsoft XBOX ONE KINECT 2 V2 with relatives connection cable
+* Microsoft XBOX ONE KINECT 2 V2 with relative connection cable
 * Ubuntu 16.04 LTS
 * ROS Kinetic
 * RTAB-Map package
@@ -108,14 +108,14 @@ roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd
 ```
 
 
-The last thing to do is to set up the websocket necessary to send the data stream to unity. Please rememeber that in order for the websocket to successfully connect the two machines they must be connected to the same network.
+The last thing to do is to set up the websocket necessary to send the data stream to unity. Please remember that in order for the websocket to successfully connect the two machines they must be connected to the same network.
 
 To launch the websocket run in a new terminal:
 ``` roslaunch rosbridge_server rosbridge_websocket.launch ```
 
 
 #### WINDOWS SIDE
-Start by downloading the repository with the unity code [here](github unity repo link). Plug the oculus in the computerand then open the project. When the websocket on the Linux machine is up and running click on play.
+Start by downloading the repository with the unity code [here](github unity repo link). Plug the oculus in the computer and then open the project. When the websocket on the Linux machine is up and running click on play.
 ## Results
 It presents the result using (images or videos) of the working system, in (real or simulation).
 
