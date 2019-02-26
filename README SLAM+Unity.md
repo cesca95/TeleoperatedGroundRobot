@@ -19,14 +19,14 @@ For more information visit the following links:
 
 [GitHub Repo](https://github.com/introlab/rtabmap_ros)
 
-As the documentation shows, RTAB-Map is composed of differents nodes but this projects will only require the use of the "rtabmap" one.
+As the documentation shows, RTAB-Map is composed of different nodes but this project will only require the use of the "rtabmap" one.
 In order for the kinect 2 v2 to work as needed it is necessary to install the [libfreenect2](https://github.com/OpenKinect/libfreenect2) and the [IAI Kinect2](https://github.com/code-iai/iai_kinect2) drivers.
 
 To establish the connection between the two machines it was chosen [rosbridge](http://wiki.ros.org/rosbridge_suite) which provides a JSON interface to ROS, allowing any client to send JSON to publish or subscribe to ROS topics, call ROS services, and more.
 
 
 ##### Inputs
-The inputs are the images taken by the kinect 2 v2 in RGB-D format, which is a combination of a RGB image and its corresponding depth image.
+The inputs are the images acquired by the kinect 2 v2 in RGB-D format, which is a combination of a RGB image and its corresponding depth image.
 ##### Internal working
 RTAB-Map takes the RGB-D images and publishes them as ROS messages under different topics as shown in the documentation [here](http://wiki.ros.org/rtabmap_ros#rtabmap). 
 ##### Outputs
