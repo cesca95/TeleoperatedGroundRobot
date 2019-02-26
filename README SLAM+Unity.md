@@ -49,7 +49,6 @@ The outputs will be the 3D point cloud map visualized on the Unity scene which w
 ## Implementation
 
 ### Prerequisites
-It describes all the hardware and software required for running the system.
 #### LINUX SIDE 
 * Microsoft XBOX ONE KINECT 2 V2 with relative connection cable
 * Ubuntu 16.04 LTS
@@ -68,7 +67,7 @@ It describes all the hardware and software required for running the system.
 
 
 ### How to run the project
-It describes step by step how to download and run the project on a new computer.
+Here it's described step by step how to download and run the project on a new computer.
 
 #### LINUX SIDE 
 If you don't already have it, install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)
