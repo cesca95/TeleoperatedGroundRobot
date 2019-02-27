@@ -60,8 +60,7 @@ The outputs will be the 3D point cloud map visualized on the Unity scene which w
 
 #### WINDOWS SIDE
 * Oculus rift Developer Kit 2
-* Unity 2018.
-* Oculus Runtime v0.8.0.0
+* Unity 2018.2.7f1
 * Oculus APP
 * Unity project files
 
