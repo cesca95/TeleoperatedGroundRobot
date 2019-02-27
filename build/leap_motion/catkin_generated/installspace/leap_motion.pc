@@ -1,8 +1,0 @@
-prefix=/home/alberto/Documents/catkin_ws/install
-
-Name: leap_motion
-Description: Description of leap_motion
-Version: 0.0.14
-Cflags: -I/home/alberto/Documents/catkin_ws/install/include
-Libs: -L/home/alberto/Documents/catkin_ws/install/lib 
-Requires: geometry_msgs message_runtime roscpp std_msgs visualization_msgs rospy
