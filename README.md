@@ -89,7 +89,7 @@ Runtime application (which is also very useful to check the status of the connec
 the device).
 * If, while launching the unity project, the error "VR: OpenVR Error! OpenVR failed
 initialization with error code VRInitError_Init_PathRegistryNotFound: 'Installation
-path could not be located (110)'!"; occurs, it’s necessary to install VR Samples from
+path could not be located (110)'!" occurs, it’s necessary to install VR Samples from
 the Unity Assets Store in order to fix it.
 
 
@@ -97,17 +97,24 @@ the Unity Assets Store in order to fix it.
 Here it's described step by step how to download and run the project on a new computer.
 
 #### LINUX SIDE 
+
+#####Preparation
+
 If you don't already have it, install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 
 Install rtabmap using the following command:
+
 ```
 sudo apt-get install ros-kinetic-rtabmap-ros
 ```
-Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch``` the file ```rgbd_mapping_kinect2.launch```, at row 25 set ```default = "true"```, at row 26 set ```default = "false"``` in order to open the pointcloud map with Rviz. 
 
-Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch/config``` the file ```rgbd.rviz```, at row 76 substitute ```/voxel_cloud``` with ```/rtabmap/cloud_map``` in order to visualize the correct topic from the beginning.
+Modify in the folder ```/opt/ros/kinetic/share/rtabmap_ros/launch``` the file ```rgbd_mapping_kinect2.launch```:
+ at row 25 set ```default = "true"```, at row 26 set ```default = "false"``` in order to open the pointcloud map with Rviz. 
 
-Note: remember to open the files as sudo in order to being able to modify and save them.
+Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch/config``` the file ```rgbd.rviz```:
+at row 76 substitute ```/voxel_cloud``` with ```/rtabmap/cloud_map``` in order to visualize the correct topic from the beginning.
+
+->Note: remember to open the files as sudo in order to being able to modify and save them.
 
 
 In order to install freenect2 libraries follow the README's instructions [here](https://github.com/OpenKinect/libfreenect2)
@@ -115,20 +122,28 @@ In order to install freenect2 libraries follow the README's instructions [here](
 In order to install IAI Kinect2 libraries follow the README's instructions [here](https://github.com/code-iai/iai_kinect2)
 
 In order to install the rosbridge_suite use the command below:
+
 ```
 sudo apt-get install ros-kinetic-rosbridge-suite 
 ```
 
+#####Running
 
-Now, after having plugged in your kinect, you're ready to launch RTAB-Map. Open a terminal and launch ```ROSCORE```
+Now, after having plugged in your kinect, you're ready to launch RTAB-Map. Open a terminal and launch
+
+```
+ROSCORE
+```
 
 In a new terminal type the command to initialize the RGB and depth sensors: 
+
 ```
 roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true
 ```
 
 
 In a third terminal type the command to start the mapping mode:
+
 ```
 roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd
 ```
@@ -136,7 +151,10 @@ roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd
 The last thing to do is to set up the websocket necessary to send the data stream to unity. Please remember that in order for the websocket to successfully connect the two machines, they must be connected to the same network.
 
 To launch the websocket run in a new terminal:
-``` roslaunch rosbridge_server rosbridge_websocket.launch ```
+
+``` 
+roslaunch rosbridge_server rosbridge_websocket.launch 
+```
 
 It could be useful to launch a ```rostopic hz /rtabmap/mapData``` command in another terminal in order to check if the message are being consistently sent 
 
@@ -165,9 +183,14 @@ project will run on Unity but the Oculus VR won’t be able to show any image.
 
 ## Results
 All the three modules (Kinect-Unity-Oculus) have been thoroughly tested and have demonstrated to be fully working. 
-The final implementation allows the user to visualize the entirety of the map in a realistic and
-dynamic way while the virtual environment keeps expanding as the robot explores its
-surroundings.
+The final implementation allows the user to visualize the entirety of the map in a realistic and dynamic way while the virtual environment keeps expanding as the robot explores its surroundings.
+
+You can see the implemented architecture working in the following videos:
+
+[Kinect - Unity - Oculus interface Video 1](https://www.youtube.com/watch?v=akuiFXSs5n4)
+[Kinect - Unity - Oculus interface Video 2](https://www.youtube.com/watch?v=fg03l9Zvy0s)
+
+
 For further comments on the results please refer to the [Report](link of report) here on the repository.
 
 ## Recommendations
