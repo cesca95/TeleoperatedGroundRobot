@@ -1,11 +1,11 @@
 # hrp_teleoperation
 
 ## Objective of the Project
-The objective of this project is to create a 3D pointcloud map from the images acquired by a kinect in a ROS environment on Linux, to transmit it to a Windows based Unity project which will tweaks and improve the map in order to make it more user-friendly before sending it to the Oculus visor weared by the user.
-The kinect could be even mounted on a moving robot in order to create a real-time dynamic map of its surrounding.
+The objective of this project is to create a 3D pointcloud map from the images acquired by a Microsoft Kinect in a ROS environment on Linux, to transmit it to a Windows based Unity project which will tweaks and improve the map in order to make it more user-friendly before sending it to the Oculus visor weared by the user.
+The Kinect could be even mounted on a moving robot in order to create a real-time dynamic map of its surrounding.
 
 ## The System’s Architecture
-The architecture implementation is conceptually very trivial. As represented in the figure below, it can be
+The architecture implementation is conceptually quite trivial. As represented in the figure below, it can be
 seen how the two principal modules share data with a simple websocket. In addition to them
 there also is a Oculus VR device used for the final visualization.
 <p align="center"> 
@@ -73,6 +73,7 @@ user to explore the scene just by moving around his head.
 
 #### WINDOWS SIDE
 * Oculus rift Developer Kit 2
+* Windows 10
 * Unity 2018.2.7f1
 * Oculus APP
 * Unity project files
@@ -98,7 +99,7 @@ Here it's described step by step how to download and run the project on a new co
 
 #### LINUX SIDE 
 
-#####Preparation
+####Preparation
 
 If you don't already have it, install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 
@@ -127,7 +128,7 @@ In order to install the rosbridge_suite use the command below:
 sudo apt-get install ros-kinetic-rosbridge-suite 
 ```
 
-#####Running
+####Running the node
 
 Now, after having plugged in your kinect, you're ready to launch RTAB-Map. Open a terminal and launch
 
