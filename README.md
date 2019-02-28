@@ -163,16 +163,16 @@ It could be useful to launch a ```rostopic hz /rtabmap/mapData``` command in ano
 
 
 #### WINDOWS SIDE
-Start by downloading the repository with the unity code [here](https://github.com/EmaroLab/hrp_teleoperation/tree/Unity).
+1. Start by downloading the repository with the unity code [here](https://github.com/EmaroLab/hrp_teleoperation/tree/Unity).
 
-Plug the oculus in the computer paying attention to the warnings in the troubleshooting
+2. Plug the oculus in the computer paying attention to the warnings in the troubleshooting
 section. The Oculus Sensor must be plugged in alongside the VR, otherwise the Unity
 scene would not be displayed.
 
-Then, run the Unity project by opening the scene contained inside the “/Oculus with
+3. Run the Unity project by opening the scene contained inside the “/Oculus with
 pose/Assets” folder.
 
-Once the project is fully loaded, the Oculus properly connected and the websocket on
+4. Once the project is fully loaded, the Oculus properly connected and the websocket on
 the Linux machine up and running, click on play on the editor.
 
 All the relevant information would be displayed on the Unity console such as the
@@ -191,6 +191,7 @@ The final implementation allows the user to visualize the entirety of the map in
 You can see the implemented architecture working in the following videos:
 
 [Kinect - Unity - Oculus interface Video 1](https://www.youtube.com/watch?v=akuiFXSs5n4)
+
 [Kinect - Unity - Oculus interface Video 2](https://www.youtube.com/watch?v=fg03l9Zvy0s)
 
 
