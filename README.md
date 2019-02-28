@@ -105,11 +105,12 @@ In a third terminal type the command to start the mapping mode:
 roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd
 ```
 
-
 The last thing to do is to set up the websocket necessary to send the data stream to unity. Please remember that in order for the websocket to successfully connect the two machines they must be connected to the same network.
 
 To launch the websocket run in a new terminal:
 ``` roslaunch rosbridge_server rosbridge_websocket.launch ```
+
+It could be useful to launch a ```rostopic hz /rtabmap/mapData``` command in another terminal in order to check if the message are being consistently sent 
 
 
 #### WINDOWS SIDE
@@ -123,67 +124,3 @@ The Recommendations follow naturally from the conclusions. They describe: the as
 ## Authors
 * Enrico Casagrande: erri.casagrande@gmail.com
 * Alberto Ghiotto: alberto.ghiotto@hotmail.it
-
-# Useful GitHub readme syntax
-
-## To make bullet points
-
-* Do this
-	* Do this
-
-## To make hyper-link
-
-For example, making a link to [ROS tutorials](http://wiki.ros.org/ROS/Tutorials)
-
-## To show, how to execute some commands in the terminal
-
-    ```
-    sudo apt install ros-kinetic-opencv3 #(should be already installed with previous point)
-    sudo apt install ros-kinetic-opencv-apps
-    ```
-
-## To exphasize about a particular command
-
-For example: Please do a ```catkin_make ```, once you have modified your code. 
-
-## To add image(s) or video(s)
-
-* To embbed an image
-
-<p align="center"> 
-<img src="https://github.com/yushakareem/test-delete/blob/master/light-bulb-2-256.gif">
-</p>
-
-* To link a [video](https://youtu.be/-yOZEiHLuVU)
-
-
-
-
-#http://wiki.ros.org/rtabmap_ros
-
-sudo apt-get install ros-kinetic-libfreenect
-
-In order to install and launch rtabmap:
-
-sudo apt-get install ros-kinetic-rtabmap-ros
-
-Modify in /opt/ros/kinetic/share/rtabmap_ros/launch the file rtabmap.launch
-at row 21 set default = false, at row 22 set deafault = true in order to open the pointcloud map with rviz.
-
-Launch rtabmap:
-roscore
-
-roslaunch freenect_launch freenect.launch depth_registration:=true
-
-roslaunch rtabmap_ros rtabmap.launch rtabmap_args:="--delete_db_on_start"
-
-
-pointcloud topic:  /rtabmap/mapData     type:  rtabmap_ros/MapData
-
-
-run the websocket with: roslaunch rosbridge_server rosbridge_websocket.launch
-
-Kinect v2
-
-roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true
-
