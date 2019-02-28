@@ -101,28 +101,28 @@ Here it's described step by step how to download and run the project on a new co
 
 ##### Preparation
 
-If you don't already have it, install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)
+1. If you don't already have it, install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 
-Install rtabmap using the following command:
+2. Install rtabmap using the following command:
 
 ```
 sudo apt-get install ros-kinetic-rtabmap-ros
 ```
 
-Modify in the folder ```/opt/ros/kinetic/share/rtabmap_ros/launch``` the file ```rgbd_mapping_kinect2.launch```:
+3. Modify in the folder ```/opt/ros/kinetic/share/rtabmap_ros/launch``` the file ```rgbd_mapping_kinect2.launch```:
  at row 25 set ```default = "true"```, at row 26 set ```default = "false"``` in order to open the pointcloud map with Rviz. 
 
-Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch/config``` the file ```rgbd.rviz```:
+4. Modify in ```/opt/ros/kinetic/share/rtabmap_ros/launch/config``` the file ```rgbd.rviz```:
 at row 76 substitute ```/voxel_cloud``` with ```/rtabmap/cloud_map``` in order to visualize the correct topic from the beginning.
 
 ->Note: remember to open the files as sudo in order to being able to modify and save them.
 
 
-In order to install freenect2 libraries follow the README's instructions [here](https://github.com/OpenKinect/libfreenect2)
+5. In order to install freenect2 libraries follow the README's instructions [here](https://github.com/OpenKinect/libfreenect2)
 
-In order to install IAI Kinect2 libraries follow the README's instructions [here](https://github.com/code-iai/iai_kinect2)
+6. In order to install IAI Kinect2 libraries follow the README's instructions [here](https://github.com/code-iai/iai_kinect2)
 
-In order to install the rosbridge_suite use the command below:
+7. In order to install the rosbridge_suite use the command below:
 
 ```
 sudo apt-get install ros-kinetic-rosbridge-suite 
@@ -130,20 +130,22 @@ sudo apt-get install ros-kinetic-rosbridge-suite
 
 ##### Running the node
 
-Now, after having plugged in your kinect, you're ready to launch RTAB-Map. Open a terminal and launch
+Now, after having plugged in your kinect, you're ready to launch RTAB-Map. 
+
+1. Open a terminal and launch
 
 ```
 ROSCORE
 ```
 
-In a new terminal type the command to initialize the RGB and depth sensors: 
+2. In a new terminal type the command to initialize the RGB and depth sensors: 
 
 ```
 roslaunch kinect2_bridge kinect2_bridge.launch publish_tf:=true
 ```
 
 
-In a third terminal type the command to start the mapping mode:
+3. In a third terminal type the command to start the mapping mode:
 
 ```
 roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd
@@ -151,7 +153,7 @@ roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd
 
 The last thing to do is to set up the websocket necessary to send the data stream to unity. Please remember that in order for the websocket to successfully connect the two machines, they must be connected to the same network.
 
-To launch the websocket run in a new terminal:
+4. To launch the websocket run in a new terminal:
 
 ``` 
 roslaunch rosbridge_server rosbridge_websocket.launch 
