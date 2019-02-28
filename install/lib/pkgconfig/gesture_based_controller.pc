@@ -1,8 +1,0 @@
-prefix=/home/alberto/Documents/catkin_ws/install
-
-Name: gesture_based_controller
-Description: Description of gesture_based_controller
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/alberto/Documents/catkin_ws/install/lib 
-Requires: 
