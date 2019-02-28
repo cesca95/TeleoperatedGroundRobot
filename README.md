@@ -9,7 +9,7 @@ The architecture implementation is conceptually very trivial. As represented in 
 seen how the two principal modules share data with a simple websocket. In addition to them
 there also is a Oculus VR device used for the final visualization.
 <p align="center"> 
-<img src="https://github.com/yushakareem/test-delete/blob/master/architecture.jpeg">
+<img src="https://github.com/EmaroLab/hrp_teleoperation/blob/master/Architecture.gif">
 </p>
 
 ### Overall Architecture
