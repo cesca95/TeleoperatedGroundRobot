@@ -1,7 +1,7 @@
 # hrp_teleoperation
 
 ## Objective of the Project
-The objective of this project is to create a 3D pointcloud map from the images acquired by a Microsoft Kinect in a ROS environment on Linux, to transmit it to a Windows based Unity project which will tweaks and improve the map in order to make it more user-friendly before sending it to the Oculus visor weared by the user.
+The objective of this project is to create a 3D pointcloud map from the images acquired by a Microsoft Kinect in a ROS environment on Linux, to transmit it to a Windows based Unity project which will tweak and improve the map in order to make it more user-friendly before sending it to the Oculus visor weared by the user.
 The Kinect could be even mounted on a moving robot in order to create a real-time dynamic map of its surrounding.
 
 ## The System’s Architecture
