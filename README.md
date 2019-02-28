@@ -1,9 +1,16 @@
 # hrp_teleoperation
 
 ## Objective of the Project
-It describes what the project wants to achieve and defines terminologies. Presents the hardware or tools used in the project.
+The objective of this project is to create a 3D pointcloud map from the images acquired by a kinect in a ROS environment on Linux, to transmit it to a Windows based Unity project which will tweaks and improve the map in order to make it more user-friendly before sending it to the Oculus visor weared by the user.
+The kinect could be mounted on a moving robot in order to create a real-time map of its surrounding.
 
 ## The System’s Architecture
+The architecture implementation is conceptually very trivial. As represented in the figure below, it can be
+seen how the two principal modules share data with a simple websocket. In addition to them
+there also is a Oculus VR device used for the final visualization.
+<p align="center"> 
+<img src="https://github.com/yushakareem/test-delete/blob/master/architecture.jpeg">
+</p>
 
 ### Overall Architecture
 It describes what the project wants to achieve and defines the key terminologies of this project. Presents the hardware or tools used in the project.
@@ -113,7 +120,7 @@ In a third terminal type the command to start the mapping mode:
 roslaunch rtabmap_ros rgbd_mapping_kinect2.launch resolution:=qhd
 ```
 
-The last thing to do is to set up the websocket necessary to send the data stream to unity. Please remember that in order for the websocket to successfully connect the two machines they must be connected to the same network.
+The last thing to do is to set up the websocket necessary to send the data stream to unity. Please remember that in order for the websocket to successfully connect the two machines, they must be connected to the same network.
 
 To launch the websocket run in a new terminal:
 ``` roslaunch rosbridge_server rosbridge_websocket.launch ```
