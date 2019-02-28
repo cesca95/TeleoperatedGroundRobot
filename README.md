@@ -2,7 +2,7 @@
 
 ## Objective of the Project
 The objective of this project is to create a 3D pointcloud map from the images acquired by a kinect in a ROS environment on Linux, to transmit it to a Windows based Unity project which will tweaks and improve the map in order to make it more user-friendly before sending it to the Oculus visor weared by the user.
-The kinect could be mounted on a moving robot in order to create a real-time map of its surrounding.
+The kinect could be even mounted on a moving robot in order to create a real-time dynamic map of its surrounding.
 
 ## The System’s Architecture
 The architecture implementation is conceptually very trivial. As represented in the figure below, it can be
