@@ -12,8 +12,6 @@ there also is a Oculus VR device used for the final visualization.
 <img src="https://github.com/EmaroLab/hrp_teleoperation/blob/master/Architecture.gif">
 </p>
 
-### Overall Architecture
-It describes what the project wants to achieve and defines the key terminologies of this project. Presents the hardware or tools used in the project.
 
 ### Description of the Modules
 #### SLAM approach
@@ -78,6 +76,21 @@ user to explore the scene just by moving around his head.
 * Unity 2018.2.7f1
 * Oculus APP
 * Unity project files
+
+#### TROUBLESHOOTING
+* Notebook and laptops are apparently not supported by the Oculus kit. This seems to be
+due to a lack of drivers for portable GPUs, which prevents the Oculus from displaying
+anything.
+* The Oculus must be directly connected to the graphic card of the computer.
+* It is recommended to connect the USB cable to a USB 2.0 port. However, in our case
+the Oculus worked fine as well even when connected to a 3.0 port.
+* Before opening the Unity project is always recommended to have already run the Oculus
+Runtime application (which is also very useful to check the status of the connection of
+the device).
+* If, while launching the unity project, the error "VR: OpenVR Error! OpenVR failed
+initialization with error code VRInitError_Init_PathRegistryNotFound: 'Installation
+path could not be located (110)'!"; occurs, it’s necessary to install VR Samples from
+the Unity Assets Store in order to fix it.
 
 
 ### How to run the project
@@ -151,10 +164,14 @@ If the Oculus App is not already running it will be opened automatically. If it�
 project will run on Unity but the Oculus VR won’t be able to show any image.
 
 ## Results
-It presents the result using (images or videos) of the working system, in (real or simulation).
+All the three modules (Kinect-Unity-Oculus) have been thoroughly tested and have demonstrated to be fully working. 
+The final implementation allows the user to visualize the entirety of the map in a realistic and
+dynamic way while the virtual environment keeps expanding as the robot explores its
+surroundings.
+For further comments on the results please refer to the [Report](link of report) here on the repository.
 
 ## Recommendations
-The Recommendations follow naturally from the conclusions. They describe: the assumptions made while building the system (and/or) the limitations of the working system. Therefore, presenting possible ideas that could overcome the limitations or assumptions. 
+The fundamental recommendiation are already reported in the "TROUBLESHOOTING" section above, for an in-depth analisys please refer to the [Report](link of report) here on the repository.
 
 ## Authors
 * Enrico Casagrande: erri.casagrande@gmail.com
