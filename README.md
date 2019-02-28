@@ -99,7 +99,7 @@ Here it's described step by step how to download and run the project on a new co
 
 #### LINUX SIDE 
 
-####Preparation
+##### Preparation
 
 If you don't already have it, install ROS kinetic as shown in the [tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu)
 
@@ -128,7 +128,7 @@ In order to install the rosbridge_suite use the command below:
 sudo apt-get install ros-kinetic-rosbridge-suite 
 ```
 
-####Running the node
+##### Running the node
 
 Now, after having plugged in your kinect, you're ready to launch RTAB-Map. Open a terminal and launch
 
