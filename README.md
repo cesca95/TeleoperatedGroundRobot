@@ -122,7 +122,27 @@ It could be useful to launch a ```rostopic hz /rtabmap/mapData``` command in ano
 
 
 #### WINDOWS SIDE
-Start by downloading the repository with the unity code [here](https://github.com/EmaroLab/hrp_teleoperation/tree/Unity). Plug the oculus in the computer and then open the project. When the websocket on the Linux machine is up and running click on play.
+Start by downloading the repository with the unity code [here](https://github.com/EmaroLab/hrp_teleoperation/tree/Unity).
+
+Plug the oculus in the computer paying attention to the warnings in the troubleshooting
+section. The Oculus Sensor must be plugged in alongside the VR, otherwise the Unity
+scene would not be displayed.
+
+Then, run the Unity project by opening the scene contained inside the “/Oculus with
+pose/Assets” folder.
+
+Once the project is fully loaded, the Oculus properly connected and the websocket on
+the Linux machine up and running, click on play on the editor.
+
+All the relevant information would be displayed on the Unity console such as the
+configuration and the pointcloud messages. After a short time (depending on the
+amount of data that Unity is receiving) the map will appear onto the scene and putting
+on the Oculus should be sufficient to give the user a proper 3D immersion into Virtual
+Reality.
+
+If the Oculus App is not already running it will be opened automatically. If it’s not, the
+project will run on Unity but the Oculus VR won’t be able to show any image.
+
 ## Results
 It presents the result using (images or videos) of the working system, in (real or simulation).
 
