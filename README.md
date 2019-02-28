@@ -40,11 +40,19 @@ This module is implemented on the machine running windows and provides a platfor
 Unity receives the ROS messages of the ```/rtabmap/mapData``` topic via the websocket.
 
 ##### Internal working
-The data stream is processed by a script tuned to convert the ROS message received in an image visualizable on the Unity scene.
-  
+All the functionalities descripted above are integrated in a custom script which connects
+to the ROS node, receives the data and then converts the pointcloud atomic elements
+into 3D cubes (composed by meshes), in order to make the scene more intuitive and
+user friendly.
+The cubes are then colored using a particular shader, the “GUI/text shader”, which
+allows to maintain the original color registered by the RGB camera of the Kinect for
+every point in space.
+ 
 ##### Outputs
-The outputs will be the 3D point cloud map visualized on the Unity scene which will also be visualized by the connected oculus.
-
+The output will be the 3D point cloud map visualized on the Unity scene, composed this
+time not by points but by colored cubes.
+Everything will also be displayed on the connected oculus, giving the possibility to the
+user to explore the scene just by moving around his head.
 
 ## Implementation
 
@@ -114,7 +122,7 @@ It could be useful to launch a ```rostopic hz /rtabmap/mapData``` command in ano
 
 
 #### WINDOWS SIDE
-Start by downloading the repository with the unity code [here](github unity repo link). Plug the oculus in the computer and then open the project. When the websocket on the Linux machine is up and running click on play.
+Start by downloading the repository with the unity code [here](https://github.com/EmaroLab/hrp_teleoperation/tree/Unity). Plug the oculus in the computer and then open the project. When the websocket on the Linux machine is up and running click on play.
 ## Results
 It presents the result using (images or videos) of the working system, in (real or simulation).
 
