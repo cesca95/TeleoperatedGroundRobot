@@ -57,9 +57,13 @@ Software prerequisites:
     git clone
     ```
 
+### Kinect Setup
+
+1. Follow the README in the src/kinect_listener folder
+
 ### Leap Motion Setup
 
-1. Follow the README in the Leap Motion folder
+1. Follow the README in the src/leap_teleop folder
 
 ### For the simulation on Gazebo (Optional)
 
