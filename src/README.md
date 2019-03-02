@@ -1,54 +1,129 @@
-# Title of the project
+# Mobile Robot Teleoperation
 
-This project allows to read the orientation of the right arm estimated by three different sensors, a smartwatch, a kinect and a leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to meve it. 
+This project allows to read the orientation of the right arm estimated by three different sensors, a smartwatch, a kinect and a leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to move it. 
 
 ## The System’s Architecture
 
 The hardware is composed by a smartwatch, a kinect, a leap motion and the robot we want to move. The modules are wrote in cpp or in python.
 
 ### Description of the Modules
-It describes all the modules within the architecture, i.e, (i) the inputs, (ii) the internal working, and (iii) the outputs.
+
+The architecture is composed by three sensors that get information regarding the arm and interface to the PC using the respective drivers. The adapter nodes receive the orientation data from the respective sensors and in different ways convert them into RPY data and then send everything to the controller. The controller receives RPY angles which are easier to interpret than quaternions and converts them into linear and angular velocities, makes the average and sends the actual velocities to the robot.  
+
+### Leap Motion Module
+
+This module takes in input images taken by two cameras are analyzed to reconctruct a 3D representation of what the device sees. Tracking algorithms interprat the 3D data and infer the pitch and the roll of occluded objects.
+
+### Smartwatch Module 
+
+The smartwatch module takes as input the data sent by the smartwatch, filtered by the Complementary Filter Node, and gives as output the corresponding RPY (roll-pitch-yaw) data.
+
+### Controller Module 
+
+The controller module takes as input the RPY data sent by the three adapter of the sensors and converts them into linear and angular velocities. Then it computes the weighted average between the velocities available and gives as output the actual velocity that the robot has to take.
+
+### Gazebo Simulation
+
+During the test phase the simulator listen at the topic /cmd_vel and a simulated hrp_automower moves in Gazebo according to the message received.
 
 ## Implementation
 
 ### Prerequisites
-It describes all hardwares and softwares that are required for running the system.
+
+Hardware prerequisites:
+
+1. LG G Watch R W110
+
+1. LG G6 H870
+
+1. Husqvarna Automower
+
+Software prerequisites:
+
+1. ROS kinetic, to download it follow [this guide](http://wiki.ros.org/kinetic/Installation/Ubuntu).
+
+1. Imu Stream, a set of Android applications (mobile and wear) to stream IMU data from the smartwatch to an MQTT broker. For more feature follow [this guide](http://github.com/EmaroLab/imu_stream).
+
+1. Mosquitto on Ubuntu, to download it follow [this guide](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-ubuntu-16-04).
+
+1. GAZEBO robotic simulator for ROS, to download it follow [this guide](http://gazebosim.org/tutorials?tut=ros_installing). 
+
+1. Leap Motion SDK 
 
 ### How to run the project
-It describes step by step how to download and run the project on a new computer.
 
+1. Clone this repository in your workspace through the command 
+	```bash
+    git clone
+    ```
+
+### Leap Motion Setup
+
+1. Follow the README in the Leap Motion folder
+
+### For the simulation on Gazebo (Optional)
+
+
+1. (ONLY IF YOU WANT TO SIMULATE ON GAZEBO)For the simulation of the Husqvarna Automower on GAZEBO install all the dependencies (for more info about this part look at [this guide](https://github.com/HusqvarnaResearch/hrp/blob/master/Startup%20Guide%20HRP.pdf) 
+	```bash
+	sudo apt-get install ros-kinetic-gazebo-ros-control
+	sudo apt-get install ros-kinetic-joint-state-controller
+	sudo apt-get install ros-kinetic-hector-gazebo-plugins
+	sudo apt-get install ros-kinetic-hector-gazebo
+	sudo apt-get install python-pygame
+	```
+
+1. Setup the model path
+	```bash
+	export GAZEBO_MODEL_PATH=[your path]/src/haro/am_gazebo/models:$GAZEBO_MODEL_PATH
+	```
+
+###Compilation and running
+
+1. Compile your workspace
+	```bash
+	catkin_make
+	```
+
+1. Kinect:
+   ```bash
+   -(Terminal 1)  roslaunch openni_launch openni.launch camera:=openni
+   ```
+
+1. Smartwatch:
+    Check the Mosquitto broker status.
+    ```bash
+    sudo service mosquitto status
+    ```
+
+1. Start the Mosquitto broker. (if the broker is already active skip this step)
+    ```bash
+    (Terminal 2) mosquitto
+    ```
+
+1. Leap Motion:
+   ```bash
+   -(Terminal 3) LeapControlPanel
+   -(Terminal 4) roslaunch leap_motion sensor_sender.launch
+   ```
+
+1. In another terminal tab launch the controller and all the other nodes (inside the launch file you could comment components not needed, for example those
+ for the simulation)
+	```bash
+    (Terminal 5) roslaunch controller controller.launch
+    ```
+1. In order to start the simulation on gazebo
+	```bash
+    (Terminal 6) roslaunch am_gazebo am_gazebo_hrp.launch gui:=true
+    ```
 ## Results
-It presents the result using (images or videos) of the working system, in (real or simulation).
+The smartwatch was fully tested and we can conclude that the Husqvarna Automower is totally controllable through the usage of a smartwatch.
 
 ## Recommendations
-The Recommendations follow naturally from the conclusions. They describe: the assumptions made while building the system (and/or) the limitations of the working system. Therefore, presenting possible ideas that could overcome the limitations or assumptions. 
+During the test phase some issues raised, one of them is the fact that the connection between smartwatch, smartphone and computer introduce a considerable delay that retard the movement of the robot with respect to the smartwatch orientation.
 
 ## Authors
-* FirstName LastName: email@email.com
-* FirstName LastName: email@email.com
-* FirstName LastName: email@email.com
-
-# Useful GitHub readme syntax
-
-## To make bullet points
-
-* Do this
-	* Do this
-
-## To make hyper-link
-
-For example, making a link to [ROS tutorials](http://wiki.ros.org/ROS/Tutorials)
-
-## To show, how to execute some commands in the terminal
-
-    ```
-    sudo apt install ros-kinetic-opencv3 #(should be already installed with previous point)
-    sudo apt install ros-kinetic-opencv-apps
-    ```
-
-## To exphasize about a particular command
-
-For example: Please do a ```catkin_make ```, once you have modified your code. 
-
-## To add image(s) or video(s)
+* Noel Alejandro Avila Campos: nono.nonex@gmail.com
+* Nicola De Carli: s4198668@studenti.unige.it
+* Angelica Ginnante: angelica.ginnante@gmail.com
 
