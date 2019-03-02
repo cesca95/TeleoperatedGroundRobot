@@ -126,4 +126,6 @@ During the test phase some issues raised, one of them is the fact that the conne
 * Noel Alejandro Avila Campos: nono.nonex@gmail.com
 * Nicola De Carli: s4198668@studenti.unige.it
 * Angelica Ginnante: angelica.ginnante@gmail.com
+* Adam Berka: berkaadam7@gmail.com
+* Nicolas Dejon: nicolas.dejon@etu.utc.fr
 
