@@ -10,10 +10,6 @@ The hardware is composed by a smartwatch, a kinect, a leap motion and the robot 
 
 The architecture is composed by three sensors that get information regarding the arm and interface to the PC using the respective drivers. The adapter nodes receive the orientation data from the respective sensors and in different ways convert them into RPY data and then send everything to the controller. The controller receives RPY angles which are easier to interpret than quaternions and converts them into linear and angular velocities, makes the average and sends the actual velocities to the robot.  
 
-### Leap Motion Module
-
-This module takes in input images taken by two cameras are analyzed to reconctruct a 3D representation of what the device sees. Tracking algorithms interprat the 3D data and infer the pitch and the roll of occluded objects.
-
 ### Smartwatch Module 
 
 The smartwatch module takes as input the data sent by the smartwatch, filtered by the Complementary Filter Node, and gives as output the corresponding RPY (roll-pitch-yaw) data.
@@ -22,7 +18,7 @@ The smartwatch module takes as input the data sent by the smartwatch, filtered b
 
 The controller module takes as input the RPY data sent by the three adapter of the sensors and converts them into linear and angular velocities. Then it computes the weighted average between the velocities available and gives as output the actual velocity that the robot has to take.
 
-### Gazebo Simulation
+### GAZEBO
 
 During the test phase the simulator listen at the topic /cmd_vel and a simulated hrp_automower moves in Gazebo according to the message received.
 
@@ -48,22 +44,11 @@ Software prerequisites:
 
 1. GAZEBO robotic simulator for ROS, to download it follow [this guide](http://gazebosim.org/tutorials?tut=ros_installing). 
 
-1. Leap Motion SDK 
-
 ### How to run the project
-
 1. Clone this repository in your workspace through the command 
 	```bash
     git clone
     ```
-
-### Leap Motion Setup
-
-1. Follow the README in the Leap Motion folder
-
-### For the simulation on Gazebo (Optional)
-
-
 1. (ONLY IF YOU WANT TO SIMULATE ON GAZEBO)For the simulation of the Husqvarna Automower on GAZEBO install all the dependencies (for more info about this part look at [this guide](https://github.com/HusqvarnaResearch/hrp/blob/master/Startup%20Guide%20HRP.pdf) 
 	```bash
 	sudo apt-get install ros-kinetic-gazebo-ros-control
@@ -72,49 +57,36 @@ Software prerequisites:
 	sudo apt-get install ros-kinetic-hector-gazebo
 	sudo apt-get install python-pygame
 	```
-
+1. Install the timed roslaunch package through the command, is needed for the timing of the complementary filter
+	```bash
+	sudo apt install ros-kinetic-timed-roslaunch
+	```
+1. Compile your workspace
+	```bash
+	catkin_make
+	```
 1. Setup the model path
 	```bash
 	export GAZEBO_MODEL_PATH=[your path]/src/haro/am_gazebo/models:$GAZEBO_MODEL_PATH
 	```
 
-###Compilation and running
 
-1. Compile your workspace
-	```bash
-	catkin_make
-	```
-
-1. Kinect:
-   ```bash
-   -(Terminal 1)  roslaunch openni_launch openni.launch camera:=openni
-   ```
-
-1. Smartwatch:
-    Check the Mosquitto broker status.
+1. Check the Mosquitto broker status, if the broker is already active skip step 6.
     ```bash
     sudo service mosquitto status
     ```
-
-1. Start the Mosquitto broker. (if the broker is already active skip this step)
+1. Start the Mosquitto broker.
     ```bash
-    (Terminal 2) mosquitto
+    mosquitto
     ```
-
-1. Leap Motion:
-   ```bash
-   -(Terminal 3) LeapControlPanel
-   -(Terminal 4) roslaunch leap_motion sensor_sender.launch
-   ```
-
-1. In another terminal tab launch the controller and all the other nodes (inside the launch file you could comment components not needed, for example those
+1. In another terminal tab launch the controller and all the other nodes (inside the launch file you cold comment components not needed, for example those
  for the simulation)
 	```bash
-    (Terminal 5) roslaunch controller controller.launch
+    roslaunch controller controller.launch
     ```
 1. In order to start the simulation on gazebo
 	```bash
-    (Terminal 6) roslaunch am_gazebo am_gazebo_hrp.launch gui:=true
+    roslaunch am_gazebo am_gazebo_hrp.launch gui:=true
     ```
 ## Results
 The smartwatch was fully tested and we can conclude that the Husqvarna Automower is totally controllable through the usage of a smartwatch.
@@ -126,6 +98,4 @@ During the test phase some issues raised, one of them is the fact that the conne
 * Noel Alejandro Avila Campos: nono.nonex@gmail.com
 * Nicola De Carli: s4198668@studenti.unige.it
 * Angelica Ginnante: angelica.ginnante@gmail.com
-* Adam Berka: berkaadam7@gmail.com
-* Nicolas Dejon: nicolas.dejon@etu.utc.fr
 
