@@ -13,3 +13,6 @@
 [submodule "src/openni_tracker"]
 	path = src/openni_tracker
 	url = https://github.com/ros-drivers/openni_tracker.git
+[submodule "src/timed_roslaunch"]
+	path = src/timed_roslaunch
+	url = https://github.com/MoriKen254/timed_roslaunch.git
