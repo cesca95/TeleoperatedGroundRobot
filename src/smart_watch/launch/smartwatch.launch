@@ -1,0 +1,8 @@
+<launch>
+	<node pkg="mqtt_ros_bridge" type="imu_bridge.py" name="imu_bridge" output="screen">
+    	<remap from="/G_Watch_R_5509" to="/imu/data_raw"/>
+		<remap from="/G_Watch_R" to="/imu/data_raw"/>
+  	</node>	
+	<node pkg="timed_roslaunch" type="timed_roslaunch.sh" args="2 smartwatch imu_filter2.launch" name="timed_roslaunch" output="screen"/>
+	<node name="smart_watch_pub" pkg="smart_watch" type="smart_watch_pub" output="screen"/>
+</launch> 
