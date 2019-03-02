@@ -57,10 +57,6 @@ Software prerequisites:
 	sudo apt-get install ros-kinetic-hector-gazebo
 	sudo apt-get install python-pygame
 	```
-1. Install the timed roslaunch package through the command, is needed for the timing of the complementary filter
-	```bash
-	sudo apt install ros-kinetic-timed-roslaunch
-	```
 1. Compile your workspace
 	```bash
 	catkin_make
