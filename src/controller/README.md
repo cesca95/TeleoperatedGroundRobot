@@ -75,7 +75,7 @@ Software prerequisites:
     ```bash
     mosquitto
     ```
-1. In another terminal tab launch the controller and all the other nodes (inside the launch file you cold comment components not needed, for example those
+1. In another terminal tab launch the controller and all the other nodes (inside the launch file you could comment components not needed, for example those
  for the simulation)
 	```bash
     roslaunch controller controller.launch
