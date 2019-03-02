@@ -1,6 +1,6 @@
 # Mobile Robot Teleoperation
 
-This project allows to read the orientation of the right arm estimated by three different sensors: a smartwatch, a kinect and a leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to move it. 
+This project allows to read the orientation of the right arm estimated by three different sensors: smartwatch, kinect and leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to move it. 
 
 ## The System’s Architecture
 
@@ -91,7 +91,7 @@ Software prerequisites:
 
 1. Kinect:
    ```bash
-   -(Terminal 1)  roslaunch openni_launch openni.launch camera:=openni
+   (Terminal 1)  roslaunch openni_launch openni.launch camera:=openni
    ```
 
 1. Smartwatch:
@@ -107,8 +107,8 @@ Software prerequisites:
 
 1. Leap Motion:
    ```bash
-   -(Terminal 3) LeapControlPanel
-   -(Terminal 4) roslaunch leap_motion sensor_sender.launch
+   (Terminal 3) LeapControlPanel
+   (Terminal 4) roslaunch leap_motion sensor_sender.launch
    ```
 
 1. In another terminal tab launch the controller and all the other nodes (inside the launch file you could comment components not needed, for example those
