@@ -1,0 +1,45 @@
+\hypertarget{leap__teleop_8py}{}\doxysection{/home/sergentementone/\+Documenti/hrp\+\_\+teleoperation/ws/src/leap\+\_\+teleop/scripts/leap\+\_\+teleop.py File Reference}
+\label{leap__teleop_8py}\index{/home/sergentementone/Documenti/hrp\_teleoperation/ws/src/leap\_teleop/scripts/leap\_teleop.py@{/home/sergentementone/Documenti/hrp\_teleoperation/ws/src/leap\_teleop/scripts/leap\_teleop.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceleap__teleop}{leap\+\_\+teleop}}
+\begin{DoxyCompactList}\small\item\em Leap Motion Teleoperation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceleap__teleop_aaf41b79f07eb7cc0e1788499903153f4}{leap\+\_\+teleop.\+send\+Orientation}} (\mbox{\hyperlink{kinect__tf__listener_8cpp_a21cd490f6191f66678f55b4c242a10cf}{yaw}}, \mbox{\hyperlink{kinect__tf__listener_8cpp_a34c057a0378030db67bd6a129f37d938}{pitch}}, \mbox{\hyperlink{kinect__tf__listener_8cpp_a1d3228afa3a1d6773954f40c1e519eb9}{roll}})
+\begin{DoxyCompactList}\small\item\em Sends the raw incoming yaw, pitch and roll angles from the Leap Motion to the /orientation topic. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceleap__teleop_ae1e09e310267113ac84c807827275e1d}{leap\+\_\+teleop.\+send\+Teleop}} (\mbox{\hyperlink{kinect__tf__listener_8cpp_a21cd490f6191f66678f55b4c242a10cf}{yaw}}, \mbox{\hyperlink{kinect__tf__listener_8cpp_a34c057a0378030db67bd6a129f37d938}{pitch}}, \mbox{\hyperlink{kinect__tf__listener_8cpp_a1d3228afa3a1d6773954f40c1e519eb9}{roll}})
+\begin{DoxyCompactList}\small\item\em Interprets the received yaw, pitch and roll into user-\/defined hand gestures that controls the simulated robot turltesim by sending Twist messages. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceleap__teleop_adcb0ac20c15e9be0136afae2a2aaf4f6}{leap\+\_\+teleop.\+callback\+\_\+ros}} (data)
+\begin{DoxyCompactList}\small\item\em Callback of the R\+OS subscriber to send the orientation messages to the controller and the Twist messages to control the robot. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceleap__teleop_a6c72e4cae5e175377835d4be83c02f25}{leap\+\_\+teleop.\+listener}} ()
+\begin{DoxyCompactList}\small\item\em Listens to leapmotion/data and starts R\+OS spin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespaceleap__teleop_ae0283c2ff563e11991a37f19860a27cf}{leap\+\_\+teleop.\+teleop\+\_\+topic}} = \textquotesingle{}/turtle1/cmd\+\_\+vel\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Topic used by turtlesim. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{namespaceleap__teleop_aba528c0cef119ac5f866cb3c6f3289d1}{leap\+\_\+teleop.\+orientation\+\_\+topic}} = \textquotesingle{}/orientation\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em Topic used by the common controller. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespaceleap__teleop_a98b53373ddf6501d81a73b48f5bf0341}{leap\+\_\+teleop.\+low\+\_\+speed}} = -\/0.\+5
+\begin{DoxyCompactList}\small\item\em Robot value for backward move. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceleap__teleop_a9310de70ebf175266509ebb044a0fe83}{leap\+\_\+teleop.\+stop\+\_\+speed}} = 0
+\begin{DoxyCompactList}\small\item\em Robot value for stopping. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespaceleap__teleop_af0e508f552080adf4ae50558e89b665f}{leap\+\_\+teleop.\+high\+\_\+speed}} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Robot value for forward move. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespaceleap__teleop_ad18b9ae8c283c37a704e7728777d3664}{leap\+\_\+teleop.\+low\+\_\+turn}} = -\/0.\+5
+\begin{DoxyCompactList}\small\item\em Robot value for turning right. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceleap__teleop_a46f803005de3205825991dad25a42fde}{leap\+\_\+teleop.\+stop\+\_\+turn}} = 0
+\begin{DoxyCompactList}\small\item\em Robot value for stopping turn. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{namespaceleap__teleop_a03f77cd572843abc43ae551483e103de}{leap\+\_\+teleop.\+high\+\_\+turn}} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Robot value for turning left. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceleap__teleop_a84e15572f3d8bcb6b2ebb9d485ed1b43}{leap\+\_\+teleop.\+pitch\+\_\+low\+\_\+range}} = -\/20
+\begin{DoxyCompactList}\small\item\em Start of range for detecting low pitch. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceleap__teleop_a04d41de83b8d9c9804fbe6d0342ce90b}{leap\+\_\+teleop.\+pitch\+\_\+high\+\_\+range}} = 20
+\begin{DoxyCompactList}\small\item\em Start of range for detecting high pitch. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceleap__teleop_a2337d62b0460f5d6dc9304e4fdf23d45}{leap\+\_\+teleop.\+roll\+\_\+low\+\_\+range}} = -\/50
+\begin{DoxyCompactList}\small\item\em Start of range for detecting roll right. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespaceleap__teleop_a68b79cd14268fb235d6007c73a7d9ecb}{leap\+\_\+teleop.\+roll\+\_\+high\+\_\+range}} = 80
+\begin{DoxyCompactList}\small\item\em Start of range for detecting roll left. \end{DoxyCompactList}\end{DoxyCompactItemize}
