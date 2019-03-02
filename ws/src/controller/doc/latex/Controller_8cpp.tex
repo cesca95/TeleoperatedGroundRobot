@@ -1,5 +1,5 @@
-\hypertarget{Controller_8cpp}{}\doxysection{/home/sergentementone/\+Documenti/ws/src/controller/src/\+Controller.cpp File Reference}
-\label{Controller_8cpp}\index{/home/sergentementone/Documenti/ws/src/controller/src/Controller.cpp@{/home/sergentementone/Documenti/ws/src/controller/src/Controller.cpp}}
+\hypertarget{Controller_8cpp}{}\doxysection{/home/sergentementone/\+Documenti/hrp\+\_\+teleoperation/ws/src/controller/src/\+Controller.cpp File Reference}
+\label{Controller_8cpp}\index{/home/sergentementone/Documenti/hrp\_teleoperation/ws/src/controller/src/Controller.cpp@{/home/sergentementone/Documenti/hrp\_teleoperation/ws/src/controller/src/Controller.cpp}}
 {\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$tf2\+\_\+geometry\+\_\+msgs/tf2\+\_\+geometry\+\_\+msgs.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}geometry\+\_\+msgs/\+Twist.\+h\char`\"{}}\newline
@@ -21,26 +21,26 @@
 \item 
 \#define \mbox{\hyperlink{Controller_8cpp_a5ac5b64a20971aa2a3cb1f87e8729fbd}{A\+N\+G\+U\+L\+A\+R\+\_\+\+G\+A\+IN}}~1.\+0
 \begin{DoxyCompactList}\small\item\em C\+O\+N\+S\+T\+A\+N\+TS D\+E\+C\+L\+A\+R\+A\+T\+I\+ON. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{Controller_8cpp_a8a964ebf95ce5485144152db73c035db}{L\+I\+N\+E\+A\+R\+\_\+\+G\+A\+IN}}~1.\+4
-\item 
-\#define \mbox{\hyperlink{Controller_8cpp_a8562042530ff73d3ce9221b2221316cd}{M\+I\+N\+\_\+\+A\+N\+G\+U\+L\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}}~0.\+1
-\begin{DoxyCompactList}\small\item\em Thresholds max/min for the conversions to velocity. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{Controller_8cpp_a8a964ebf95ce5485144152db73c035db}{L\+I\+N\+E\+A\+R\+\_\+\+G\+A\+IN}}~2.\+0
+\begin{DoxyCompactList}\small\item\em Gain for the conversion from pitch angle to linear velocity. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{Controller_8cpp_a8562042530ff73d3ce9221b2221316cd}{M\+I\+N\+\_\+\+A\+N\+G\+U\+L\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}}~0.\+2
+\begin{DoxyCompactList}\small\item\em Define thresholds max/min for the conversions to velocity. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{Controller_8cpp_ab0bcc19459a14c409827641ce99247c8}{M\+I\+N\+\_\+\+L\+I\+N\+E\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}}~0.\+1
-\item 
+\begin{DoxyCompactList}\small\item\em For pitch angles under this threshold the linear velocity is put to zero, to make easier to keep the robot fixed. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{Controller_8cpp_a5c35d83a89e11f03ee397df1a0df39e0}{M\+A\+X\+\_\+\+A\+N\+G\+U\+L\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}}~1.\+5
-\item 
+\begin{DoxyCompactList}\small\item\em For roll angles over this threshold the angular velocity doesn\textquotesingle{}t increase anymore. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{Controller_8cpp_afb5e900bc3e9acde56484940020ae09f}{M\+A\+X\+\_\+\+L\+I\+N\+E\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}}~1.\+3
-\item 
+\begin{DoxyCompactList}\small\item\em For pitch angles over this threshold the linear velocity doesn\textquotesingle{}t increase anymore. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{Controller_8cpp_a14a2da9c8115152359067820613055ae}{S\+E\+N\+S\+O\+R\+\_\+\+T\+I\+M\+E\+O\+UT}}~1.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em Time beyond which the controller consider the sensor useless if it doesn\textquotesingle{}t update informations. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{Controller_8cpp_a91b251b5a5194d9551ee1ad115f891f4}{S\+E\+N\+S\+O\+R\+\_\+\+I\+S\+\_\+\+A\+C\+T\+I\+VE}}~4
-\item 
+\begin{DoxyCompactList}\small\item\em If the message from a sensor remains exactly the same for more than this value, then the data is considered unreliable. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{Controller_8cpp_a1032bbb9dd734ccde8fbad3d9276e10a}{S\+M\+A\+R\+T\+\_\+\+W\+A\+T\+C\+H\+\_\+\+W\+E\+I\+G\+HT}}~1
-\begin{DoxyCompactList}\small\item\em Weights to compute the average velocities from the data sensors, based on the sensor reliability. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Define weights to compute the average velocities from the data sensors, based on the sensor reliability. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{Controller_8cpp_a10f1ae3803ac03c3e971d059b9cb9d1d}{K\+I\+N\+E\+C\+T\+\_\+\+W\+E\+I\+G\+HT}}~1
-\item 
+\begin{DoxyCompactList}\small\item\em Weight of the Kinect in the weighted average. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{Controller_8cpp_ab3e3e78a2ab5c6f436f5d8c3cd916266}{L\+E\+A\+P\+\_\+\+W\+E\+I\+G\+HT}}~1
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Weight of the Leap Motion in the weighted average. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -58,7 +58,7 @@ ros\+::\+Time \mbox{\hyperlink{Controller_8cpp_a8fdc3c1dd90165b5f61632d0b231fdd4
 ros\+::\+Time \mbox{\hyperlink{Controller_8cpp_a3a0dd7af9cf15868f0d252ef7c90d051}{begin\+\_\+leap}}
 \item 
 int \mbox{\hyperlink{Controller_8cpp_a87643999421771778220ef865f9b25ae}{flag\+\_\+smart\+\_\+watch}} = 0
-\begin{DoxyCompactList}\small\item\em Flag to signal that the sensor is active. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Flags to signal that the sensors are active. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{Controller_8cpp_a85879cea12f27d4bc5425c472df1b6f2}{flag\+\_\+kinect}} = 0
 \item 
 int \mbox{\hyperlink{Controller_8cpp_abc2e00baf16e00afa49aab8671e9877a}{flag\+\_\+leap}} = 0
@@ -94,16 +94,16 @@ double \mbox{\hyperlink{Controller_8cpp_aa2c0c22770674db623ca477599d9fc2c}{av\+\
 double \mbox{\hyperlink{Controller_8cpp_af01fb8acec560d4752ef46b00b75175a}{lv\+\_\+kinect}} = 0
 \item 
 double \mbox{\hyperlink{Controller_8cpp_afb926ec5a10a975bdc407f1e85f5ca7c}{av\+\_\+kinect}} = 0
-\item 
-double \mbox{\hyperlink{Controller_8cpp_a25ce619263675486b43bc05df6200845}{lv\+\_\+leap}} = 0
 \begin{DoxyCompactList}\small\item\em This never changes because the kinect gives no roll information. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Controller_8cpp_a25ce619263675486b43bc05df6200845}{lv\+\_\+leap}} = 0
+\item 
 double \mbox{\hyperlink{Controller_8cpp_ad4ee1e74fff6084540e4776e6ecbe1ea}{av\+\_\+leap}} = 0
 \item 
 const std\+::string \& \mbox{\hyperlink{Controller_8cpp_a304fb900bc3dae6dcf0a675c630c7418}{S\+M\+A\+R\+T\+W\+A\+T\+CH}} = \char`\"{}/smart\+\_\+watch\+\_\+pub\char`\"{}
 \begin{DoxyCompactList}\small\item\em Possible senders of the messages we are receiving. \end{DoxyCompactList}\item 
 const std\+::string \& \mbox{\hyperlink{Controller_8cpp_acc18597b262ce4978fab7e11da2bd53d}{K\+I\+N\+E\+CT}} = \char`\"{}/kinect\+\_\+pub\char`\"{}
 \item 
-const std\+::string \& \mbox{\hyperlink{Controller_8cpp_a8047e940bf3fca84144bc86f85518685}{L\+E\+AP}} = \char`\"{}/leap\+\_\+pub\+\_\+32408\+\_\+1551361598387\char`\"{}
+const std\+::string \& \mbox{\hyperlink{Controller_8cpp_a8047e940bf3fca84144bc86f85518685}{L\+E\+AP}} = \char`\"{}/leap\+\_\+pub\char`\"{}
 \end{DoxyCompactItemize}
 
 
@@ -118,11 +118,15 @@ const std\+::string \& \mbox{\hyperlink{Controller_8cpp_a8047e940bf3fca84144bc86
 
 C\+O\+N\+S\+T\+A\+N\+TS D\+E\+C\+L\+A\+R\+A\+T\+I\+ON. 
 
-Gains for the conversions to velocity \mbox{\Hypertarget{Controller_8cpp_a10f1ae3803ac03c3e971d059b9cb9d1d}\label{Controller_8cpp_a10f1ae3803ac03c3e971d059b9cb9d1d}} 
+Define gains for the conversions to velocity\+Gain for the conversion from roll angle to angular velocity \mbox{\Hypertarget{Controller_8cpp_a10f1ae3803ac03c3e971d059b9cb9d1d}\label{Controller_8cpp_a10f1ae3803ac03c3e971d059b9cb9d1d}} 
 \index{Controller.cpp@{Controller.cpp}!KINECT\_WEIGHT@{KINECT\_WEIGHT}}
 \index{KINECT\_WEIGHT@{KINECT\_WEIGHT}!Controller.cpp@{Controller.cpp}}
 \doxysubsubsection{\texorpdfstring{KINECT\_WEIGHT}{KINECT\_WEIGHT}}
 {\footnotesize\ttfamily \#define K\+I\+N\+E\+C\+T\+\_\+\+W\+E\+I\+G\+HT~1}
+
+
+
+Weight of the Kinect in the weighted average. 
 
 \mbox{\Hypertarget{Controller_8cpp_ab3e3e78a2ab5c6f436f5d8c3cd916266}\label{Controller_8cpp_ab3e3e78a2ab5c6f436f5d8c3cd916266}} 
 \index{Controller.cpp@{Controller.cpp}!LEAP\_WEIGHT@{LEAP\_WEIGHT}}
@@ -130,11 +134,19 @@ Gains for the conversions to velocity \mbox{\Hypertarget{Controller_8cpp_a10f1ae
 \doxysubsubsection{\texorpdfstring{LEAP\_WEIGHT}{LEAP\_WEIGHT}}
 {\footnotesize\ttfamily \#define L\+E\+A\+P\+\_\+\+W\+E\+I\+G\+HT~1}
 
+
+
+Weight of the Leap Motion in the weighted average. 
+
 \mbox{\Hypertarget{Controller_8cpp_a8a964ebf95ce5485144152db73c035db}\label{Controller_8cpp_a8a964ebf95ce5485144152db73c035db}} 
 \index{Controller.cpp@{Controller.cpp}!LINEAR\_GAIN@{LINEAR\_GAIN}}
 \index{LINEAR\_GAIN@{LINEAR\_GAIN}!Controller.cpp@{Controller.cpp}}
 \doxysubsubsection{\texorpdfstring{LINEAR\_GAIN}{LINEAR\_GAIN}}
-{\footnotesize\ttfamily \#define L\+I\+N\+E\+A\+R\+\_\+\+G\+A\+IN~1.\+4}
+{\footnotesize\ttfamily \#define L\+I\+N\+E\+A\+R\+\_\+\+G\+A\+IN~2.\+0}
+
+
+
+Gain for the conversion from pitch angle to linear velocity. 
 
 \mbox{\Hypertarget{Controller_8cpp_a5c35d83a89e11f03ee397df1a0df39e0}\label{Controller_8cpp_a5c35d83a89e11f03ee397df1a0df39e0}} 
 \index{Controller.cpp@{Controller.cpp}!MAX\_ANGULAR\_THRESHOLD@{MAX\_ANGULAR\_THRESHOLD}}
@@ -142,27 +154,39 @@ Gains for the conversions to velocity \mbox{\Hypertarget{Controller_8cpp_a10f1ae
 \doxysubsubsection{\texorpdfstring{MAX\_ANGULAR\_THRESHOLD}{MAX\_ANGULAR\_THRESHOLD}}
 {\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+A\+N\+G\+U\+L\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD~1.\+5}
 
+
+
+For roll angles over this threshold the angular velocity doesn\textquotesingle{}t increase anymore. 
+
 \mbox{\Hypertarget{Controller_8cpp_afb5e900bc3e9acde56484940020ae09f}\label{Controller_8cpp_afb5e900bc3e9acde56484940020ae09f}} 
 \index{Controller.cpp@{Controller.cpp}!MAX\_LINEAR\_THRESHOLD@{MAX\_LINEAR\_THRESHOLD}}
 \index{MAX\_LINEAR\_THRESHOLD@{MAX\_LINEAR\_THRESHOLD}!Controller.cpp@{Controller.cpp}}
 \doxysubsubsection{\texorpdfstring{MAX\_LINEAR\_THRESHOLD}{MAX\_LINEAR\_THRESHOLD}}
 {\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+L\+I\+N\+E\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD~1.\+3}
 
+
+
+For pitch angles over this threshold the linear velocity doesn\textquotesingle{}t increase anymore. 
+
 \mbox{\Hypertarget{Controller_8cpp_a8562042530ff73d3ce9221b2221316cd}\label{Controller_8cpp_a8562042530ff73d3ce9221b2221316cd}} 
 \index{Controller.cpp@{Controller.cpp}!MIN\_ANGULAR\_THRESHOLD@{MIN\_ANGULAR\_THRESHOLD}}
 \index{MIN\_ANGULAR\_THRESHOLD@{MIN\_ANGULAR\_THRESHOLD}!Controller.cpp@{Controller.cpp}}
 \doxysubsubsection{\texorpdfstring{MIN\_ANGULAR\_THRESHOLD}{MIN\_ANGULAR\_THRESHOLD}}
-{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+A\+N\+G\+U\+L\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD~0.\+1}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+A\+N\+G\+U\+L\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD~0.\+2}
 
 
 
-Thresholds max/min for the conversions to velocity. 
+Define thresholds max/min for the conversions to velocity. 
 
-\mbox{\Hypertarget{Controller_8cpp_ab0bcc19459a14c409827641ce99247c8}\label{Controller_8cpp_ab0bcc19459a14c409827641ce99247c8}} 
+For roll angles under this threshold the angular velocity is put to zero, to make easier to keep the robot fixed \mbox{\Hypertarget{Controller_8cpp_ab0bcc19459a14c409827641ce99247c8}\label{Controller_8cpp_ab0bcc19459a14c409827641ce99247c8}} 
 \index{Controller.cpp@{Controller.cpp}!MIN\_LINEAR\_THRESHOLD@{MIN\_LINEAR\_THRESHOLD}}
 \index{MIN\_LINEAR\_THRESHOLD@{MIN\_LINEAR\_THRESHOLD}!Controller.cpp@{Controller.cpp}}
 \doxysubsubsection{\texorpdfstring{MIN\_LINEAR\_THRESHOLD}{MIN\_LINEAR\_THRESHOLD}}
 {\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+L\+I\+N\+E\+A\+R\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD~0.\+1}
+
+
+
+For pitch angles under this threshold the linear velocity is put to zero, to make easier to keep the robot fixed. 
 
 \mbox{\Hypertarget{Controller_8cpp_a91b251b5a5194d9551ee1ad115f891f4}\label{Controller_8cpp_a91b251b5a5194d9551ee1ad115f891f4}} 
 \index{Controller.cpp@{Controller.cpp}!SENSOR\_IS\_ACTIVE@{SENSOR\_IS\_ACTIVE}}
@@ -170,11 +194,19 @@ Thresholds max/min for the conversions to velocity.
 \doxysubsubsection{\texorpdfstring{SENSOR\_IS\_ACTIVE}{SENSOR\_IS\_ACTIVE}}
 {\footnotesize\ttfamily \#define S\+E\+N\+S\+O\+R\+\_\+\+I\+S\+\_\+\+A\+C\+T\+I\+VE~4}
 
+
+
+If the message from a sensor remains exactly the same for more than this value, then the data is considered unreliable. 
+
 \mbox{\Hypertarget{Controller_8cpp_a14a2da9c8115152359067820613055ae}\label{Controller_8cpp_a14a2da9c8115152359067820613055ae}} 
 \index{Controller.cpp@{Controller.cpp}!SENSOR\_TIMEOUT@{SENSOR\_TIMEOUT}}
 \index{SENSOR\_TIMEOUT@{SENSOR\_TIMEOUT}!Controller.cpp@{Controller.cpp}}
 \doxysubsubsection{\texorpdfstring{SENSOR\_TIMEOUT}{SENSOR\_TIMEOUT}}
 {\footnotesize\ttfamily \#define S\+E\+N\+S\+O\+R\+\_\+\+T\+I\+M\+E\+O\+UT~1.\+0}
+
+
+
+Time beyond which the controller consider the sensor useless if it doesn\textquotesingle{}t update informations. 
 
 \mbox{\Hypertarget{Controller_8cpp_a1032bbb9dd734ccde8fbad3d9276e10a}\label{Controller_8cpp_a1032bbb9dd734ccde8fbad3d9276e10a}} 
 \index{Controller.cpp@{Controller.cpp}!SMART\_WATCH\_WEIGHT@{SMART\_WATCH\_WEIGHT}}
@@ -184,9 +216,9 @@ Thresholds max/min for the conversions to velocity.
 
 
 
-Weights to compute the average velocities from the data sensors, based on the sensor reliability. 
+Define weights to compute the average velocities from the data sensors, based on the sensor reliability. 
 
-
+Weight of the Smartwatch in the weighted average 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{Controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{Controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
@@ -207,31 +239,15 @@ Constant representing the time beyond which the controller consider the sensor u
 
 Message to send
 
-If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
+If the absolute value of the pitch angle is less than a threshold consider it zero, to make easier to keep the robot fixed
 
-If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
-
-Compute the velocity in the standard way if the value of the angle is betweeen the two threshold
-
-If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
-
-If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+If the absolute value of the pitch angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
 
 Compute the velocity in the standard way if the value of the angle is betweeen the two threshold
 
-Check the time
+If the absolute value of the roll angle is less than a threshold consider it zero, to make easier to keep the robot fixed
 
-If the values of the two angles are both the same as those of the previous message increase the counter
-
-If it is different restart the counter
-
-If no data has arrived in the last second, or the message from the sensor has remained the same for too many times then do not consider the output due to this sensor, it could be unreliable
-
-update the previous values
-
-If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
-
-If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+If the absolute value of the roll angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
 
 Compute the velocity in the standard way if the value of the angle is betweeen the two threshold
 
@@ -243,17 +259,11 @@ If it is different restart the counter
 
 If no data has arrived in the last second, or the message from the sensor has remained the same for too many times then do not consider the output due to this sensor, it could be unreliable
 
-update the previous values
+update the previous values of the two angles
 
-If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
+If the absolute value of the pitch angle is less than a threshold consider it zero, to make easier to keep the robot fixed
 
-If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
-
-Compute the velocity in the standard way if the value of the angle is betweeen the two threshold
-
-If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
-
-If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+If the absolute value of the pitch angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
 
 Compute the velocity in the standard way if the value of the angle is betweeen the two threshold
 
@@ -265,16 +275,38 @@ If it is different restart the counter
 
 If no data has arrived in the last second, or the message from the sensor has remained the same for too many times then do not consider the output due to this sensor, it could be unreliable
 
-update the previous values
+update the previous values of the two angles
+
+If the absolute value of the pitch angle is less than a threshold consider it zero, to make easier to keep the robot fixed
+
+If the absolute value of the pitch angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+
+Compute the velocity in the standard way if the value of the angle is betweeen the two threshold
+
+If the absolute value of the roll angle is less than a threshold consider it zero, to make easier to keep the robot fixed
+
+If the absolute value of the roll angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+
+Compute the velocity in the standard way if the value of the angle is betweeen the two threshold
+
+Check the time
+
+If the values of the two angles are both the same as those of the previous message increase the counter
+
+If it is different restart the counter
+
+If no data has arrived in the last second, or the message from the sensor has remained the same for too many times then do not consider the output due to this sensor, it could be unreliable
+
+update the previous values of the two angles
 
 If at least one sensor is connected the velocity should be the weighted average between the velocities computed with the data from each sensor
 
-If the only sensor active is the kinect set the angular velocity to zero
+If the only sensor active is the kinect set the angular velocity to zero since it doesn\textquotesingle{}t provide roll data
 
-For the computation of the angular component don\textquotesingle{}t consider the kinect because it doesn\textquotesingle{}t provide the roll angle ~\newline
+Otherwise compute the weighted average without considering the kinect because it doesn\textquotesingle{}t provide the roll angle ~\newline
 
 
-Otherwise set all the velocities to zero
+If no data are connected set all the velocities to zero
 
 Publish the velocity on the cmd\+\_\+vel topic\mbox{\Hypertarget{Controller_8cpp_a818012afc5abfb9dd647023da703d5cf}\label{Controller_8cpp_a818012afc5abfb9dd647023da703d5cf}} 
 \index{Controller.cpp@{Controller.cpp}!orientationCallback@{orientationCallback}}
@@ -312,6 +344,10 @@ Start the timer for this sensor
 \index{av\_kinect@{av\_kinect}!Controller.cpp@{Controller.cpp}}
 \doxysubsubsection{\texorpdfstring{av\_kinect}{av\_kinect}}
 {\footnotesize\ttfamily double av\+\_\+kinect = 0}
+
+
+
+This never changes because the kinect gives no roll information. 
 
 \mbox{\Hypertarget{Controller_8cpp_ad4ee1e74fff6084540e4776e6ecbe1ea}\label{Controller_8cpp_ad4ee1e74fff6084540e4776e6ecbe1ea}} 
 \index{Controller.cpp@{Controller.cpp}!av\_leap@{av\_leap}}
@@ -367,7 +403,7 @@ Time of the arrive of the last message for each sensor \mbox{\Hypertarget{Contro
 
 
 
-Flag to signal that the sensor is active. 
+Flags to signal that the sensors are active. 
 
 \mbox{\Hypertarget{Controller_8cpp_acc18597b262ce4978fab7e11da2bd53d}\label{Controller_8cpp_acc18597b262ce4978fab7e11da2bd53d}} 
 \index{Controller.cpp@{Controller.cpp}!KINECT@{KINECT}}
@@ -413,7 +449,7 @@ Preceiding measures arrived from each sensor to evaluate its reliability (-\/-\/
 \index{Controller.cpp@{Controller.cpp}!LEAP@{LEAP}}
 \index{LEAP@{LEAP}!Controller.cpp@{Controller.cpp}}
 \doxysubsubsection{\texorpdfstring{LEAP}{LEAP}}
-{\footnotesize\ttfamily const std\+::string\& L\+E\+AP = \char`\"{}/leap\+\_\+pub\+\_\+32408\+\_\+1551361598387\char`\"{}}
+{\footnotesize\ttfamily const std\+::string\& L\+E\+AP = \char`\"{}/leap\+\_\+pub\char`\"{}}
 
 \mbox{\Hypertarget{Controller_8cpp_af01fb8acec560d4752ef46b00b75175a}\label{Controller_8cpp_af01fb8acec560d4752ef46b00b75175a}} 
 \index{Controller.cpp@{Controller.cpp}!lv\_kinect@{lv\_kinect}}
@@ -426,10 +462,6 @@ Preceiding measures arrived from each sensor to evaluate its reliability (-\/-\/
 \index{lv\_leap@{lv\_leap}!Controller.cpp@{Controller.cpp}}
 \doxysubsubsection{\texorpdfstring{lv\_leap}{lv\_leap}}
 {\footnotesize\ttfamily double lv\+\_\+leap = 0}
-
-
-
-This never changes because the kinect gives no roll information. 
 
 \mbox{\Hypertarget{Controller_8cpp_a42c0c2ce3cdbf025771caba2ebdf3131}\label{Controller_8cpp_a42c0c2ce3cdbf025771caba2ebdf3131}} 
 \index{Controller.cpp@{Controller.cpp}!lv\_smartwatch@{lv\_smartwatch}}

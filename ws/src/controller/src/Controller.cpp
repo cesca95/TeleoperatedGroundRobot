@@ -3,7 +3,7 @@
 *	@date 28-02-2019
 *	@authors Nicola De Carli and Noel Alejandro Avila Campos and Angelica Ginnante  
 *	@brief Controller used for teleoperation of a Husqvarna Automower
-*	@details Program that receives orientation data from the sensors and remap them to velocity sent the robot topic.@n
+*	@details Program that receives orientation data from the sensors expressed in RPY angles and remap them to velocity, that then are mixed using a weighted average and then sent to the robot topic *	/cmd_vel 
 */
 
 #include "ros/ros.h"
@@ -21,23 +21,23 @@
 
 ///CONSTANTS DECLARATION
 
-///Gains for the conversions to velocity
-#define ANGULAR_GAIN 1.0		///Gain for the conversion from roll angle to angular velocity
-#define LINEAR_GAIN 2.0			///Gain for the conversion from pitch angle to linear velocity
+///Define gains for the conversions to velocity
+#define ANGULAR_GAIN 1.0		///<Gain for the conversion from roll angle to angular velocity
+#define LINEAR_GAIN 2.0			///<Gain for the conversion from pitch angle to linear velocity
 
-///Thresholds max/min for the conversions to velocity
-#define MIN_ANGULAR_THRESHOLD 0.2	///For roll angles under this threshold the angular velocity is put to zero, to make easier to keep the robot fixed
-#define MIN_LINEAR_THRESHOLD 0.1        ///For pitch angles under this threshold the linear velocity is put to zero, to make easier to keep the robot fixed
-#define MAX_ANGULAR_THRESHOLD 1.5       ///For roll angles over this threshold the angular velocity doesn't increase anymore
-#define MAX_LINEAR_THRESHOLD 1.3	///For pitch angles over this threshold the linear velocity doesn't increase anymore
+///Define thresholds max/min for the conversions to velocity
+#define MIN_ANGULAR_THRESHOLD 0.2	///<For roll angles under this threshold the angular velocity is put to zero, to make easier to keep the robot fixed
+#define MIN_LINEAR_THRESHOLD 0.1        ///<For pitch angles under this threshold the linear velocity is put to zero, to make easier to keep the robot fixed
+#define MAX_ANGULAR_THRESHOLD 1.5       ///<For roll angles over this threshold the angular velocity doesn't increase anymore
+#define MAX_LINEAR_THRESHOLD 1.3	///<For pitch angles over this threshold the linear velocity doesn't increase anymore
 
-#define SENSOR_TIMEOUT 1.0		///Time beyond which the controller consider the sensor useless if it doesn't update informations
-#define SENSOR_IS_ACTIVE 4		///If the message from a sensor remains exactly the same for more than this value, then the data is considered unreliable
+#define SENSOR_TIMEOUT 1.0		///<Time beyond which the controller consider the sensor useless if it doesn't update informations
+#define SENSOR_IS_ACTIVE 4		///<If the message from a sensor remains exactly the same for more than this value, then the data is considered unreliable
 
-///Weights to compute the average velocities from the data sensors, based on the sensor reliability
-#define SMART_WATCH_WEIGHT 1
-#define KINECT_WEIGHT 1
-#define LEAP_WEIGHT 1
+///Define weights to compute the average velocities from the data sensors, based on the sensor reliability
+#define SMART_WATCH_WEIGHT 1		///<Weight of the Smartwatch in the weighted average
+#define KINECT_WEIGHT 1			///<Weight of the Kinect in the weighted average
+#define LEAP_WEIGHT 1			///<Weight of the Leap Motion in the weighted average
 
 
 ///VARIABLES DECLARATION
@@ -47,7 +47,7 @@ ros::Time begin_smartwatch;
 ros::Time begin_kinect;
 ros::Time begin_leap;
 
-///Flag to signal that the sensor is active
+///Flags to signal that the sensors are active
 int flag_smart_watch = 0;
 int flag_kinect = 0;
 int flag_leap = 0;
@@ -73,14 +73,14 @@ double last_pitch_leap = 0;
 double lv_smartwatch = 0;
 double av_smartwatch = 0;
 double lv_kinect = 0;
-double av_kinect = 0;	///This never changes because the kinect gives no roll information 
+double av_kinect = 0;	///<This never changes because the kinect gives no roll information 
 double lv_leap = 0;
 double av_leap = 0;	 
 
 ///Possible senders of the messages we are receiving
 const std::string& SMARTWATCH = "/smart_watch_pub";
 const std::string& KINECT = "/kinect_pub";
-const std::string& LEAP = "/leap_pub_32408_1551361598387";
+const std::string& LEAP = "/leap_pub";
 
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -178,12 +178,12 @@ int main(int argc, char **argv)
    {
     ////////////    LINEAR VELOCITY	//////////////
    
-    ///If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
+    ///If the absolute value of the pitch angle is less than a threshold consider it zero, to make easier to keep the robot fixed
     if(fabs(pitch_smartwatch) < MIN_LINEAR_THRESHOLD)
     {
      lv_smartwatch = 0;
     }
-    ///If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+    ///If the absolute value of the pitch angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
     else if(fabs(pitch_smartwatch) > MAX_LINEAR_THRESHOLD)
     {
      int sign = pitch_smartwatch / fabs(pitch_smartwatch);
@@ -197,12 +197,12 @@ int main(int argc, char **argv)
     
     ////////////    ANGULAR VELOCITY	//////////////
     
-    ///If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
+    ///If the absolute value of the roll angle is less than a threshold consider it zero, to make easier to keep the robot fixed
     if(fabs(roll_smartwatch) < MIN_ANGULAR_THRESHOLD)
     {
      av_smartwatch = 0;
     }
-    ///If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+    ///If the absolute value of the roll angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
     else if(fabs(roll_smartwatch) > MAX_ANGULAR_THRESHOLD)
     {
      int sign = roll_smartwatch / fabs(roll_smartwatch);
@@ -235,7 +235,7 @@ int main(int argc, char **argv)
      sensor_counter--;
      flag_smart_watch = 0;
     }    
-    ///update the previous values
+    ///update the previous values of the two angles
     last_roll_smartwatch = roll_smartwatch;
     last_pitch_smartwatch = pitch_smartwatch;
    }
@@ -246,12 +246,12 @@ int main(int argc, char **argv)
    {
     ////////////    LINEAR VELOCITY	//////////////
    
-    ///If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
+    ///If the absolute value of the pitch angle is less than a threshold consider it zero, to make easier to keep the robot fixed
     if(fabs(pitch_kinect) < MIN_LINEAR_THRESHOLD)
     {
      lv_kinect = 0;
     }
-    ///If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+    ///If the absolute value of the pitch angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
     else if(fabs(pitch_kinect) > MAX_LINEAR_THRESHOLD)
     {
      int sign = pitch_kinect / fabs(pitch_kinect);
@@ -284,7 +284,7 @@ int main(int argc, char **argv)
      sensor_counter--;
      flag_kinect = 0;
     }
-    ///update the previous values
+    ///update the previous values of the two angles
     last_pitch_kinect = pitch_kinect;
    }
    
@@ -294,12 +294,12 @@ int main(int argc, char **argv)
    {
     ////////////    LINEAR VELOCITY	//////////////
    
-    ///If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
+    ///If the absolute value of the pitch angle is less than a threshold consider it zero, to make easier to keep the robot fixed
     if(fabs(pitch_leap) < MIN_LINEAR_THRESHOLD)
     {
      lv_leap = 0;
     } 
-    ///If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+    ///If the absolute value of the pitch angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
     else if(fabs(pitch_leap) > MAX_LINEAR_THRESHOLD)
     {
      int sign = pitch_leap / fabs(pitch_leap);
@@ -313,12 +313,12 @@ int main(int argc, char **argv)
     
     ////////////    ANGULAR VELOCITY	//////////////
     
-    ///If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed
+    ///If the absolute value of the roll angle is less than a threshold consider it zero, to make easier to keep the robot fixed
     if(fabs(roll_leap) < MIN_ANGULAR_THRESHOLD)
     {
      av_leap = 0;
     }
-    ///If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
+    ///If the absolute value of the roll angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity
     else if(fabs(roll_leap) > MAX_ANGULAR_THRESHOLD)
     {
      int sign = roll_leap / fabs(roll_leap);
@@ -351,7 +351,7 @@ int main(int argc, char **argv)
      sensor_counter--;
      flag_leap = 0;
     }    
-    ///update the previous values
+    ///update the previous values of the two angles
     last_roll_leap = roll_leap;
     last_pitch_leap = pitch_leap;
    }
@@ -363,18 +363,18 @@ int main(int argc, char **argv)
    if(sensor_counter > 0)
    {
      twist.linear.x = ( (flag_smart_watch * SMART_WATCH_WEIGHT * lv_smartwatch) + (flag_kinect * KINECT_WEIGHT * lv_kinect) + (flag_leap * LEAP_WEIGHT * lv_leap) ) / (flag_smart_watch * SMART_WATCH_WEIGHT + 				flag_kinect * KINECT_WEIGHT + flag_leap * LEAP_WEIGHT);
-     ///If the only sensor active is the kinect set the angular velocity to zero
+     ///If the only sensor active is the kinect set the angular velocity to zero since it doesn't provide roll data
      if(flag_smart_watch == 0 && flag_leap == 0)
      {
       twist.angular.z = 0;
      }
-     ///For the computation of the angular component don't consider the kinect because it doesn't provide the roll angle  
+     ///Otherwise compute the weighted average without considering the kinect because it doesn't provide the roll angle  
      else
      {
       twist.angular.z = ( (flag_smart_watch * SMART_WATCH_WEIGHT * av_smartwatch) + (flag_leap * LEAP_WEIGHT * av_leap) ) / (flag_smart_watch * SMART_WATCH_WEIGHT + flag_leap * LEAP_WEIGHT);     
      }
    }
-   ///Otherwise set all the velocities to zero
+   ///If no data are connected set all the velocities to zero
    else 
    {
     twist.linear.x = 0;

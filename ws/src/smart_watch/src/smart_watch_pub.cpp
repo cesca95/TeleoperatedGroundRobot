@@ -1,3 +1,11 @@
+/**
+*	@package controller
+*	@date 28-02-2019
+*	@authors Nicola De Carli and Angelica Ginnante  
+*	@brief Adapter that receives quaternions data and remap them to RPY (roll-pitch-yaw) angles
+*	@details This program receives quaternion data regarding the orientation of the smartwatch and uses the tf functions to convert these data to RPY angles
+*/
+
 #include "ros/ros.h"
 #include "sensor_msgs/Imu.h"
 #include "tf/transform_listener.h"

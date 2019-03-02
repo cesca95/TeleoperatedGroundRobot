@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Controller: /home/sergentementone/Documenti/ws/src/controller/src/Controller.cpp File Reference</title>
+<title>Controller: /home/sergentementone/Documenti/hrp_teleoperation/ws/src/controller/src/Controller.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -97,27 +97,35 @@ Macros</h2></td></tr>
 <tr class="memitem:a5ac5b64a20971aa2a3cb1f87e8729fbd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a5ac5b64a20971aa2a3cb1f87e8729fbd">ANGULAR_GAIN</a>&#160;&#160;&#160;1.0</td></tr>
 <tr class="memdesc:a5ac5b64a20971aa2a3cb1f87e8729fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">CONSTANTS DECLARATION.  <a href="#a5ac5b64a20971aa2a3cb1f87e8729fbd">More...</a><br /></td></tr>
 <tr class="separator:a5ac5b64a20971aa2a3cb1f87e8729fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a964ebf95ce5485144152db73c035db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a8a964ebf95ce5485144152db73c035db">LINEAR_GAIN</a>&#160;&#160;&#160;1.4</td></tr>
+<tr class="memitem:a8a964ebf95ce5485144152db73c035db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a8a964ebf95ce5485144152db73c035db">LINEAR_GAIN</a>&#160;&#160;&#160;2.0</td></tr>
+<tr class="memdesc:a8a964ebf95ce5485144152db73c035db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gain for the conversion from pitch angle to linear velocity.  <a href="#a8a964ebf95ce5485144152db73c035db">More...</a><br /></td></tr>
 <tr class="separator:a8a964ebf95ce5485144152db73c035db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8562042530ff73d3ce9221b2221316cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a8562042530ff73d3ce9221b2221316cd">MIN_ANGULAR_THRESHOLD</a>&#160;&#160;&#160;0.1</td></tr>
-<tr class="memdesc:a8562042530ff73d3ce9221b2221316cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thresholds max/min for the conversions to velocity.  <a href="#a8562042530ff73d3ce9221b2221316cd">More...</a><br /></td></tr>
+<tr class="memitem:a8562042530ff73d3ce9221b2221316cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a8562042530ff73d3ce9221b2221316cd">MIN_ANGULAR_THRESHOLD</a>&#160;&#160;&#160;0.2</td></tr>
+<tr class="memdesc:a8562042530ff73d3ce9221b2221316cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define thresholds max/min for the conversions to velocity.  <a href="#a8562042530ff73d3ce9221b2221316cd">More...</a><br /></td></tr>
 <tr class="separator:a8562042530ff73d3ce9221b2221316cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0bcc19459a14c409827641ce99247c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#ab0bcc19459a14c409827641ce99247c8">MIN_LINEAR_THRESHOLD</a>&#160;&#160;&#160;0.1</td></tr>
+<tr class="memdesc:ab0bcc19459a14c409827641ce99247c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">For pitch angles under this threshold the linear velocity is put to zero, to make easier to keep the robot fixed.  <a href="#ab0bcc19459a14c409827641ce99247c8">More...</a><br /></td></tr>
 <tr class="separator:ab0bcc19459a14c409827641ce99247c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c35d83a89e11f03ee397df1a0df39e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a5c35d83a89e11f03ee397df1a0df39e0">MAX_ANGULAR_THRESHOLD</a>&#160;&#160;&#160;1.5</td></tr>
+<tr class="memdesc:a5c35d83a89e11f03ee397df1a0df39e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">For roll angles over this threshold the angular velocity doesn't increase anymore.  <a href="#a5c35d83a89e11f03ee397df1a0df39e0">More...</a><br /></td></tr>
 <tr class="separator:a5c35d83a89e11f03ee397df1a0df39e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb5e900bc3e9acde56484940020ae09f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#afb5e900bc3e9acde56484940020ae09f">MAX_LINEAR_THRESHOLD</a>&#160;&#160;&#160;1.3</td></tr>
+<tr class="memdesc:afb5e900bc3e9acde56484940020ae09f"><td class="mdescLeft">&#160;</td><td class="mdescRight">For pitch angles over this threshold the linear velocity doesn't increase anymore.  <a href="#afb5e900bc3e9acde56484940020ae09f">More...</a><br /></td></tr>
 <tr class="separator:afb5e900bc3e9acde56484940020ae09f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14a2da9c8115152359067820613055ae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a14a2da9c8115152359067820613055ae">SENSOR_TIMEOUT</a>&#160;&#160;&#160;1.0</td></tr>
+<tr class="memdesc:a14a2da9c8115152359067820613055ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time beyond which the controller consider the sensor useless if it doesn't update informations.  <a href="#a14a2da9c8115152359067820613055ae">More...</a><br /></td></tr>
 <tr class="separator:a14a2da9c8115152359067820613055ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91b251b5a5194d9551ee1ad115f891f4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a91b251b5a5194d9551ee1ad115f891f4">SENSOR_IS_ACTIVE</a>&#160;&#160;&#160;4</td></tr>
+<tr class="memdesc:a91b251b5a5194d9551ee1ad115f891f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the message from a sensor remains exactly the same for more than this value, then the data is considered unreliable.  <a href="#a91b251b5a5194d9551ee1ad115f891f4">More...</a><br /></td></tr>
 <tr class="separator:a91b251b5a5194d9551ee1ad115f891f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1032bbb9dd734ccde8fbad3d9276e10a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a1032bbb9dd734ccde8fbad3d9276e10a">SMART_WATCH_WEIGHT</a>&#160;&#160;&#160;1</td></tr>
-<tr class="memdesc:a1032bbb9dd734ccde8fbad3d9276e10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weights to compute the average velocities from the data sensors, based on the sensor reliability.  <a href="#a1032bbb9dd734ccde8fbad3d9276e10a">More...</a><br /></td></tr>
+<tr class="memdesc:a1032bbb9dd734ccde8fbad3d9276e10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define weights to compute the average velocities from the data sensors, based on the sensor reliability.  <a href="#a1032bbb9dd734ccde8fbad3d9276e10a">More...</a><br /></td></tr>
 <tr class="separator:a1032bbb9dd734ccde8fbad3d9276e10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10f1ae3803ac03c3e971d059b9cb9d1d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a10f1ae3803ac03c3e971d059b9cb9d1d">KINECT_WEIGHT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a10f1ae3803ac03c3e971d059b9cb9d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weight of the Kinect in the weighted average.  <a href="#a10f1ae3803ac03c3e971d059b9cb9d1d">More...</a><br /></td></tr>
 <tr class="separator:a10f1ae3803ac03c3e971d059b9cb9d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3e3e78a2ab5c6f436f5d8c3cd916266"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#ab3e3e78a2ab5c6f436f5d8c3cd916266">LEAP_WEIGHT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:ab3e3e78a2ab5c6f436f5d8c3cd916266"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weight of the Leap Motion in the weighted average.  <a href="#ab3e3e78a2ab5c6f436f5d8c3cd916266">More...</a><br /></td></tr>
 <tr class="separator:ab3e3e78a2ab5c6f436f5d8c3cd916266"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -137,7 +145,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a3a0dd7af9cf15868f0d252ef7c90d051"><td class="memItemLeft" align="right" valign="top">ros::Time&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a3a0dd7af9cf15868f0d252ef7c90d051">begin_leap</a></td></tr>
 <tr class="separator:a3a0dd7af9cf15868f0d252ef7c90d051"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87643999421771778220ef865f9b25ae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a87643999421771778220ef865f9b25ae">flag_smart_watch</a> = 0</td></tr>
-<tr class="memdesc:a87643999421771778220ef865f9b25ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to signal that the sensor is active.  <a href="#a87643999421771778220ef865f9b25ae">More...</a><br /></td></tr>
+<tr class="memdesc:a87643999421771778220ef865f9b25ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags to signal that the sensors are active.  <a href="#a87643999421771778220ef865f9b25ae">More...</a><br /></td></tr>
 <tr class="separator:a87643999421771778220ef865f9b25ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85879cea12f27d4bc5425c472df1b6f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a85879cea12f27d4bc5425c472df1b6f2">flag_kinect</a> = 0</td></tr>
 <tr class="separator:a85879cea12f27d4bc5425c472df1b6f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,9 +185,9 @@ Variables</h2></td></tr>
 <tr class="memitem:af01fb8acec560d4752ef46b00b75175a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#af01fb8acec560d4752ef46b00b75175a">lv_kinect</a> = 0</td></tr>
 <tr class="separator:af01fb8acec560d4752ef46b00b75175a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb926ec5a10a975bdc407f1e85f5ca7c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#afb926ec5a10a975bdc407f1e85f5ca7c">av_kinect</a> = 0</td></tr>
+<tr class="memdesc:afb926ec5a10a975bdc407f1e85f5ca7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This never changes because the kinect gives no roll information.  <a href="#afb926ec5a10a975bdc407f1e85f5ca7c">More...</a><br /></td></tr>
 <tr class="separator:afb926ec5a10a975bdc407f1e85f5ca7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25ce619263675486b43bc05df6200845"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a25ce619263675486b43bc05df6200845">lv_leap</a> = 0</td></tr>
-<tr class="memdesc:a25ce619263675486b43bc05df6200845"><td class="mdescLeft">&#160;</td><td class="mdescRight">This never changes because the kinect gives no roll information.  <a href="#a25ce619263675486b43bc05df6200845">More...</a><br /></td></tr>
 <tr class="separator:a25ce619263675486b43bc05df6200845"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4ee1e74fff6084540e4776e6ecbe1ea"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#ad4ee1e74fff6084540e4776e6ecbe1ea">av_leap</a> = 0</td></tr>
 <tr class="separator:ad4ee1e74fff6084540e4776e6ecbe1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,7 +196,7 @@ Variables</h2></td></tr>
 <tr class="separator:a304fb900bc3dae6dcf0a675c630c7418"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc18597b262ce4978fab7e11da2bd53d"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#acc18597b262ce4978fab7e11da2bd53d">KINECT</a> = &quot;/kinect_pub&quot;</td></tr>
 <tr class="separator:acc18597b262ce4978fab7e11da2bd53d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8047e940bf3fca84144bc86f85518685"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a8047e940bf3fca84144bc86f85518685">LEAP</a> = &quot;/leap_pub_32408_1551361598387&quot;</td></tr>
+<tr class="memitem:a8047e940bf3fca84144bc86f85518685"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Controller_8cpp.html#a8047e940bf3fca84144bc86f85518685">LEAP</a> = &quot;/leap_pub&quot;</td></tr>
 <tr class="separator:a8047e940bf3fca84144bc86f85518685"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -205,7 +213,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>CONSTANTS DECLARATION. </p>
-<p>Gains for the conversions to velocity </p>
+<p>Define gains for the conversions to velocityGain for the conversion from roll angle to angular velocity </p>
 
 </div>
 </div>
@@ -221,6 +229,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Weight of the Kinect in the weighted average. </p>
+
 </div>
 </div>
 <a id="ab3e3e78a2ab5c6f436f5d8c3cd916266"></a>
@@ -235,6 +245,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Weight of the Leap Motion in the weighted average. </p>
+
 </div>
 </div>
 <a id="a8a964ebf95ce5485144152db73c035db"></a>
@@ -244,10 +256,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define LINEAR_GAIN&#160;&#160;&#160;1.4</td>
+          <td class="memname">#define LINEAR_GAIN&#160;&#160;&#160;2.0</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Gain for the conversion from pitch angle to linear velocity. </p>
 
 </div>
 </div>
@@ -263,6 +277,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>For roll angles over this threshold the angular velocity doesn't increase anymore. </p>
+
 </div>
 </div>
 <a id="afb5e900bc3e9acde56484940020ae09f"></a>
@@ -277,6 +293,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>For pitch angles over this threshold the linear velocity doesn't increase anymore. </p>
+
 </div>
 </div>
 <a id="a8562042530ff73d3ce9221b2221316cd"></a>
@@ -286,12 +304,13 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MIN_ANGULAR_THRESHOLD&#160;&#160;&#160;0.1</td>
+          <td class="memname">#define MIN_ANGULAR_THRESHOLD&#160;&#160;&#160;0.2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Thresholds max/min for the conversions to velocity. </p>
+<p>Define thresholds max/min for the conversions to velocity. </p>
+<p>For roll angles under this threshold the angular velocity is put to zero, to make easier to keep the robot fixed </p>
 
 </div>
 </div>
@@ -307,6 +326,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>For pitch angles under this threshold the linear velocity is put to zero, to make easier to keep the robot fixed. </p>
+
 </div>
 </div>
 <a id="a91b251b5a5194d9551ee1ad115f891f4"></a>
@@ -320,6 +341,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>If the message from a sensor remains exactly the same for more than this value, then the data is considered unreliable. </p>
 
 </div>
 </div>
@@ -335,6 +358,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Time beyond which the controller consider the sensor useless if it doesn't update informations. </p>
+
 </div>
 </div>
 <a id="a1032bbb9dd734ccde8fbad3d9276e10a"></a>
@@ -349,7 +374,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Weights to compute the average velocities from the data sensors, based on the sensor reliability. </p>
+<p>Define weights to compute the average velocities from the data sensors, based on the sensor reliability. </p>
+<p>Weight of the Smartwatch in the weighted average </p>
 
 </div>
 </div>
@@ -385,41 +411,41 @@ Variables</h2></td></tr>
 <p>Variable to take the time</p>
 <p>Constant representing the time beyond which the controller consider the sensor useless if it doesn't update informations</p>
 <p>Message to send</p>
-<p>If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
-<p>If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
+<p>If the absolute value of the pitch angle is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
+<p>If the absolute value of the pitch angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
 <p>Compute the velocity in the standard way if the value of the angle is betweeen the two threshold</p>
-<p>If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
-<p>If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
-<p>Compute the velocity in the standard way if the value of the angle is betweeen the two threshold</p>
-<p>Check the time</p>
-<p>If the values of the two angles are both the same as those of the previous message increase the counter</p>
-<p>If it is different restart the counter</p>
-<p>If no data has arrived in the last second, or the message from the sensor has remained the same for too many times then do not consider the output due to this sensor, it could be unreliable</p>
-<p>update the previous values</p>
-<p>If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
-<p>If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
+<p>If the absolute value of the roll angle is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
+<p>If the absolute value of the roll angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
 <p>Compute the velocity in the standard way if the value of the angle is betweeen the two threshold</p>
 <p>Check the time</p>
 <p>If the values of the two angles are both the same as those of the previous message increase the counter</p>
 <p>If it is different restart the counter</p>
 <p>If no data has arrived in the last second, or the message from the sensor has remained the same for too many times then do not consider the output due to this sensor, it could be unreliable</p>
-<p>update the previous values</p>
-<p>If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
-<p>If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
-<p>Compute the velocity in the standard way if the value of the angle is betweeen the two threshold</p>
-<p>If the absolute value is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
-<p>If the absolute value is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
+<p>update the previous values of the two angles</p>
+<p>If the absolute value of the pitch angle is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
+<p>If the absolute value of the pitch angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
 <p>Compute the velocity in the standard way if the value of the angle is betweeen the two threshold</p>
 <p>Check the time</p>
 <p>If the values of the two angles are both the same as those of the previous message increase the counter</p>
 <p>If it is different restart the counter</p>
 <p>If no data has arrived in the last second, or the message from the sensor has remained the same for too many times then do not consider the output due to this sensor, it could be unreliable</p>
-<p>update the previous values</p>
+<p>update the previous values of the two angles</p>
+<p>If the absolute value of the pitch angle is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
+<p>If the absolute value of the pitch angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
+<p>Compute the velocity in the standard way if the value of the angle is betweeen the two threshold</p>
+<p>If the absolute value of the roll angle is less than a threshold consider it zero, to make easier to keep the robot fixed</p>
+<p>If the absolute value of the roll angle is over the threshold then use the maximum angle instead of the actual angle to compute the velocity</p>
+<p>Compute the velocity in the standard way if the value of the angle is betweeen the two threshold</p>
+<p>Check the time</p>
+<p>If the values of the two angles are both the same as those of the previous message increase the counter</p>
+<p>If it is different restart the counter</p>
+<p>If no data has arrived in the last second, or the message from the sensor has remained the same for too many times then do not consider the output due to this sensor, it could be unreliable</p>
+<p>update the previous values of the two angles</p>
 <p>If at least one sensor is connected the velocity should be the weighted average between the velocities computed with the data from each sensor</p>
-<p>If the only sensor active is the kinect set the angular velocity to zero</p>
-<p>For the computation of the angular component don't consider the kinect because it doesn't provide the roll angle <br  />
+<p>If the only sensor active is the kinect set the angular velocity to zero since it doesn't provide roll data</p>
+<p>Otherwise compute the weighted average without considering the kinect because it doesn't provide the roll angle <br  />
 </p>
-<p>Otherwise set all the velocities to zero</p>
+<p>If no data are connected set all the velocities to zero</p>
 <p>Publish the velocity on the cmd_vel topic</p>
 
 </div>
@@ -466,6 +492,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This never changes because the kinect gives no roll information. </p>
 
 </div>
 </div>
@@ -582,7 +610,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Flag to signal that the sensor is active. </p>
+<p>Flags to signal that the sensors are active. </p>
 
 </div>
 </div>
@@ -679,7 +707,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string&amp; LEAP = &quot;/leap_pub_32408_1551361598387&quot;</td>
+          <td class="memname">const std::string&amp; LEAP = &quot;/leap_pub&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -711,8 +739,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>This never changes because the kinect gives no roll information. </p>
 
 </div>
 </div>
