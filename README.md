@@ -164,3 +164,6 @@ During the test phase some issues raised, one of them is the fact that the conne
 * Nicolas Dejon: nicolas.dejon@etu.utc.fr
 * Enrico Casagrande: erri.casagrande@gmail.com
 * Alberto Ghiotto: alberto.ghiotto@hotmail.it
+* Alberto Grillo: albogrillo@gmail.com
+* Claudio Curti: curti.claudio96@gmail.com
+* Francesca Cantoni: francescacantoni95@gmail.com
