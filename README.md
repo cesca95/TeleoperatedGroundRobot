@@ -140,6 +140,9 @@ Software prerequisites:
 	```bash
     (Terminal 6) roslaunch am_gazebo am_gazebo_hrp.launch gui:=true
     ```
+   
+1. To run the Kinect-Unity-Oculus side follow the guide in the Unity folder
+    
 ## Results
 The three sensors were fully tested and we can conclude that the Husqvarna Automower is totally controllable through the usage of them. In order to look at the simulation developed during the test phase follow this [link](https://youtu.be/Zv07ShMY1a4).
 All the three modules (Kinect-Unity-Oculus) have been thoroughly tested and have demonstrated to be fully working. 
