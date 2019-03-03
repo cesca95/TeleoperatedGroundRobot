@@ -82,7 +82,7 @@ Software prerequisites:
 	export GAZEBO_MODEL_PATH=[your path]/src/haro/am_gazebo/models:$GAZEBO_MODEL_PATH
 	```
 
-###Compilation and running
+### Compilation and running
 
 1. Compile your workspace
 	```bash
