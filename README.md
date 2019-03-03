@@ -18,6 +18,10 @@ This module takes in input images taken by two cameras are analyzed to reconctru
 
 The smartwatch module takes as input the data sent by the smartwatch, filtered by the Complementary Filter Node, and gives as output the corresponding RPY (roll-pitch-yaw) data.
 
+### Kinect Module
+
+The Kinect module takes as input the data sent by the Kinect and gives as output an RPY message. 
+
 ### Controller Module 
 
 The controller module takes as input the RPY data sent by the three adapter of the sensors and converts them into linear and angular velocities. Then it computes the weighted average between the velocities available and gives as output the actual velocity that the robot has to take.
@@ -36,6 +40,8 @@ Hardware prerequisites:
 
 1. LG G6 H870
 
+1. Kinect Sensor v1
+
 1. Husqvarna Automower
 
 Software prerequisites:
@@ -45,6 +51,8 @@ Software prerequisites:
 1. Imu Stream, a set of Android applications (mobile and wear) to stream IMU data from the smartwatch to an MQTT broker. For more feature follow [this guide](http://github.com/EmaroLab/imu_stream).
 
 1. Mosquitto on Ubuntu, to download it follow [this guide](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-ubuntu-16-04).
+
+1. To install the required libraries for the Kinect Sensor follow the README in the src/kinect_listener folder.
 
 1. GAZEBO robotic simulator for ROS, to download it follow [this guide](http://gazebosim.org/tutorials?tut=ros_installing). 
 
@@ -136,4 +144,6 @@ During the test phase some issues raised, one of them is the fact that the conne
 * Angelica Ginnante: angelica.ginnante@gmail.com
 * Adam Berka: berkaadam7@gmail.com
 * Nicolas Dejon: nicolas.dejon@etu.utc.fr
-
+* Alberto Grillo: albogrillo@gmail.com
+* Francesca Cantoni: francescacantoni95@gmail.com
+* Claudio Curti: curti.claudio96@gmail.com
