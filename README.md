@@ -65,6 +65,10 @@ Software prerequisites:
 
 1. Follow the README in the src/leap_teleop folder
 
+### Smartwatch Setup
+
+1. Follow the README in the src/mqtt_ros_bridge folder
+
 ### For the simulation on Gazebo (Optional)
 
 
