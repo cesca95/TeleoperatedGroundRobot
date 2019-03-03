@@ -121,7 +121,7 @@ Software prerequisites:
     (Terminal 6) roslaunch am_gazebo am_gazebo_hrp.launch gui:=true
     ```
 ## Results
-The smartwatch was fully tested and we can conclude that the Husqvarna Automower is totally controllable through the usage of a smartwatch.
+The three sensors were fully tested and we can conclude that the Husqvarna Automower is totally controllable through the usage of them. In order to look at the simulation developed during the test phase follow this [link](https://youtu.be/Zv07ShMY1a4).
 
 ## Recommendations
 During the test phase some issues raised, one of them is the fact that the connection between smartwatch, smartphone and computer introduce a considerable delay that retard the movement of the robot with respect to the smartwatch orientation.
