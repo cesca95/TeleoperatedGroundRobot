@@ -99,7 +99,7 @@ Software prerequisites:
 	
 ### Kinect-Unity-Oculus Setup
 
-1. Follow the README in the Unity folder
+1. Follow the README in the Unity branch
 
 
 ### Compilation and running
