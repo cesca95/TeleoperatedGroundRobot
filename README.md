@@ -8,7 +8,7 @@ The hardware is composed by a smartwatch, a kinect, a leap motion and the robot 
 
 ### Description of the Modules
 
-The architecture is composed by three sensors that get information regarding the arm and interface to the PC using the respective drivers. The adapter nodes receive the orientation data from the respective sensors and in different ways convert them into RPY data and then send everything to the controller. The controller receives RPY angles which are easier to interpret than quaternions and converts them into linear and angular velocities, makes the average and sends the actual velocities to the robot.  
+The architecture is composed by three sensors that get information regarding the arm and interface to the PC using the respective drivers. The adapter nodes receive the orientation data from the respective sensors and in different ways convert them into RPY data and then send everything to the controller. The controller receives RPY angles which are easier to interpret than quaternions and converts them into linear and angular velocities, makes the average and sends the actual velocities to the robot.
 
 ### Kinect Module
 
@@ -101,6 +101,8 @@ Software prerequisites:
 
 1. Follow the README in the Unity branch
 
+Note: the Kinect-Unity-Oculus interface section it still is on the relative "Unity" branch since it must be cloned on a different machine than the one above. The relative complete Readme it can be found on the above mentioned branch.
+
 
 ### Compilation and running
 
@@ -141,7 +143,7 @@ Software prerequisites:
     (Terminal 6) roslaunch am_gazebo am_gazebo_hrp.launch gui:=true
     ```
    
-1. To run the Kinect-Unity-Oculus side follow the guide in the Unity folder
+1. To run the Kinect-Unity-Oculus side follow the guide in the Unity branch
     
 ## Results
 The three sensors were fully tested and we can conclude that the Husqvarna Automower is totally controllable through the usage of them. In order to look at the simulation developed during the test phase follow this [link](https://youtu.be/Zv07ShMY1a4).
@@ -150,6 +152,7 @@ The final implementation allows the user to visualize the entirety of the map in
 You can see the implemented Kinect-Unity-Oculus architecture working in the following videos:
 
 [Kinect - Unity - Oculus interface Video 1](https://www.youtube.com/watch?v=akuiFXSs5n4)
+
 [Kinect - Unity - Oculus interface Video 2](https://www.youtube.com/watch?v=fg03l9Zvy0s)
 
 
