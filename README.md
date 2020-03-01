@@ -2,6 +2,14 @@
 
 This project allows to read the orientation of the right arm estimated by three different sensors: smartwatch, kinect and leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to move it. 
 
+ <p align="center">
+  <img src="Forward.gif">
+ </p>
+ 
+ <p align="center">
+  <img src="Backward.gif">
+ </p>
+
 ## The System’s Architecture
 
 The hardware is composed by a smartwatch, a kinect, a leap motion and the robot we want to move. The modules are wrote in cpp or in python.
