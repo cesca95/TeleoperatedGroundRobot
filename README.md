@@ -12,6 +12,10 @@ Forward movements:
   <img src="Backward.gif">
  </p>
 
+*Full video of the experiment can be seen at this [link](https://youtu.be/Zv07ShMY1a4)*
+
+
+
 ## The System’s Architecture
 
 The hardware is composed by a smartwatch, a kinect, a leap motion and the robot we want to move. The modules are wrote in cpp or in python.
