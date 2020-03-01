@@ -2,8 +2,9 @@
 
 This project allows to read the orientation of the right arm estimated by three different sensors: smartwatch, kinect and leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to move it. 
 
+
  <p align="center">
-  <img src="Forward.gif">
+  <img src="Forward.gif" alt="Forward movements:" width="200">
  </p>
  
  <p align="center">
