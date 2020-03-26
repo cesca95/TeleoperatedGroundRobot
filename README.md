@@ -95,11 +95,11 @@ Software prerequisites:
 
 ### Smartwatch Setup
 
-1. Set up mqtt_ros_bridge by following the [README](https://github.com/EmaroLab/mqtt_ros_bridge/blob/9fc463c696403b45a9c36afe6a5cabf9d7522423/README.md) in the src/mqtt_ros_bridge folder and set up Smartwatch device by following the [README] (https://github.com/cesca95/hrp_teleoperation/blob/master/src/smart_watch/README.md)
+1. Set up mqtt_ros_bridge by following the [README](https://github.com/EmaroLab/mqtt_ros_bridge/blob/9fc463c696403b45a9c36afe6a5cabf9d7522423/README.md) in the src/mqtt_ros_bridge folder and set up Smartwatch device by following the [README](https://github.com/cesca95/hrp_teleoperation/blob/master/src/smart_watch/README.md) 
 
 ### For the simulation on Gazebo (Optional)
 
-1. (ONLY IF YOU WANT TO SIMULATE ON GAZEBO)For the simulation of the Husqvarna Automower on GAZEBO install all the dependencies (for more info about this part look at [this guide](https://github.com/HusqvarnaResearch/hrp/blob/master/Startup%20Guide%20HRP.pdf) 
+1. (ONLY IF YOU WANT TO SIMULATE ON GAZEBO)For the simulation of the Husqvarna Automower on GAZEBO install all the dependencies (for more info about this part look at [this guide](https://github.com/HusqvarnaResearch/hrp/blob/master/Startup%20Guide%20HRP.pdf)) 
 	```bash
 	sudo apt-get install ros-kinetic-gazebo-ros-control
 	sudo apt-get install ros-kinetic-joint-state-controller
