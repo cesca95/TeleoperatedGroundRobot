@@ -95,22 +95,23 @@ def callback_ros(data):
     msg = leapros() # Get the messages from the Leap Motion
     msg = data
     
-    yaw = msg.ypr.z
-    pitch = msg.ypr.y
-    roll = msg.ypr.x
+    yaw = msg.ypr.z * math.pi / 180
+    pitch = msg.ypr.y * math.pi / 180
+    roll = msg.ypr.x * math.pi / 180
     
     sendOrientation(yaw,pitch,roll)
-    sendTeleop(yaw,pitch,roll) # Comment this line if you are not using turtlesim
+    #sendTeleop(yaw,pitch,roll) # Comment this line if you are not using turtlesim
 
 
 ## Listens to leapmotion/data and starts ROS spin
 def listener():
     global pub_teleop, pub_orientation
-    rospy.init_node('leap_sub', anonymous=True)
+    
+    rospy.init_node('leap_pub', anonymous=True)
     rospy.Subscriber("leapmotion/data", leapros, callback_ros)
     pub_teleop = rospy.Publisher(teleop_topic, Twist, queue_size=1)
     pub_orientation = rospy.Publisher(orientation_topic, RPY, queue_size=1) 
-    
+
     rospy.spin()
 
 ## Main is main

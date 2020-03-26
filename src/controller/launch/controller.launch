@@ -1,0 +1,15 @@
+<launch>
+	<node pkg="mqtt_ros_bridge" type="imu_bridge.py" name="imu_bridge" output="screen">
+    	<remap from="/G_Watch_R_5509" to="/imu/data_raw"/>
+		<remap from="/G_Watch_R" to="/imu/data_raw"/>
+  	</node>	
+	<node pkg="timed_roslaunch" type="timed_roslaunch.sh" args="2 controller imu_filter.launch" name="timed_roslaunch" output="screen"/>
+	<node name="smart_watch_pub" pkg="smart_watch" type="smart_watch_pub" output="screen"/>
+	<node name="leap_pub" pkg="leap_teleop" type="leap_teleop.py" output="screen"/>
+	<node name="kinect_pub" pkg="kinect_listener" type="kinect_pub" output="screen"/>
+	<node name="openni_tracker" pkg="openni_tracker" type="openni_tracker" output="screen"/>
+	<node name="Controller" pkg="controller" type="Controller"/>
+	<!-- <node pkg="timed_roslaunch" type="timed_roslaunch.sh" args="2 am_gazebo am_gazebo_hrp.launch" name="timed_roslaunch2" output="screen"/> -->
+	<!-- <include file="$/home/emaro/ws/src/hrp-master/am_gazebo/launch/am_gazebo_hrp.launch" gui="true"/> -->
+	<node pkg="am_driver" type="hrp_teleop.py" name="hrp_teleop" output="screen"/> 
+</launch> 
