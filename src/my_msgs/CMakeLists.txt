@@ -47,8 +47,8 @@ message_generation
 
 ## Generate messages in the 'msg' folder
 add_message_files(
-  FILES
-  RPY.msg
+	FILES
+    RPY.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -68,6 +68,7 @@ add_message_files(
 ## Generate added messages and services with any dependencies listed here
 generate_messages(
   DEPENDENCIES
+  # my_msgs
   std_msgs  # Or other packages containing msgs
 )
 

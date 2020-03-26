@@ -45,7 +45,6 @@ roll_low_range = -50
 ## Start of range for detecting roll left
 roll_high_range = 80
 
-
 ## Sends the raw incoming yaw, pitch and roll angles from the Leap Motion to the /orientation topic
 def sendOrientation(yaw,pitch,roll):
     # Publish Roll/Pitch/Yaw
@@ -107,12 +106,14 @@ def callback_ros(data):
 ## Listens to leapmotion/data and starts ROS spin
 def listener():
     global pub_teleop, pub_orientation
+    
     rospy.init_node('leap_pub', anonymous=True)
     rospy.Subscriber("leapmotion/data", leapros, callback_ros)
     pub_teleop = rospy.Publisher(teleop_topic, Twist, queue_size=1)
     pub_orientation = rospy.Publisher(orientation_topic, RPY, queue_size=1) 
 
     rospy.spin()
+
 ## Main is main
 if __name__ == '__main__':
     listener()

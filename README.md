@@ -1,7 +1,5 @@
 # Mobile Robot Teleoperation
 
-This project allows to read the orientation of the left arm estimated by three different sensors: smartwatch, kinect and leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to move it. 
-
 Forward movements:
  <p align="center">
   <img src="Forward.gif">
