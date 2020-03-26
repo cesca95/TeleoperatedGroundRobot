@@ -1,13 +1,5 @@
 # hrp_teleoperation
 
-## Objective of the Project
-It describes what the project wants to achieve and defines terminologies. Presents the hardware or tools used in the project.
-
-## The System’s Architecture
-
-### Overall Architecture
-It describes what the project wants to achieve and defines the key terminologies of this project. Presents the hardware or tools used in the project.
-
 ### Description of the Modules
 #### Feature Leap Motion Teleoperation
 This branch is about creating a project to teleoperate a robot using a Leap Motion controller with hand gestures.
@@ -142,51 +134,9 @@ Terminal 5:
 
 ## Recommendations
 Limitations from sensors, accuracy of the hand gesture detection by user-defined tresholds. 
-ideas: calibrate range of tresholds addording to each user.
-
-The Recommendations follow naturally from the conclusions. They describe: the assumptions made while building the system (and/or) the limitations of the working system. Therefore, presenting possible ideas that could overcome the limitations or assumptions. 
+ideas: calibrate range of tresholds addording to each user. 
 
 ## Authors
 * Adam Berka: berkaadam7@gmail.com
 * Nicolas Dejon: nicolas.dejon@etu.utc.fr
-
-
-# hrp_teleoperation_old
-
-After cloning the repository type in ~/hrp_teleoperation
-
-git submodule init
-
-and
-
-git submodule update
-
-This commands will link to the submodules and pull all the relative code
-
-In order to use the rgbdslam module follow the instructions at this link:(changed to rtabmap)
-
-https://hubpages.com/technology/Instructions-for-compiling-rgbdslam-v2-on-a-fresh-Ubuntu-1604-install-ros-kinetic-in-virtualbox
-
-
-http://wiki.ros.org/rtabmap_ros
-
-In order to install and launch rtabmap:
-
-sudo apt-get install ros-kinetic-rtabmap-ros
-
-Modify in /opt/ros/kinetic/share/rtabmap_ros/launch the file rtabmap.launch
-at row 21 set default = false, at row 22 set deafault = true in order to open the pointcloud map with rviz.
-
-Launch rtabmap:
-roscore
-
-roslaunch freenect_launch freenect.launch depth_registration:=true
-
-roslaunch rtabmap_ros rtabmap.launch rtabmap_args:="--delete_db_on_start"
-
-
-pointcloud topic:  /rtabmap/mapData     type:  rtabmap_ros/MapData
-
-
-run the websocket with: roslaunch rosbridge_server rosbridge_websocket.launch
 
