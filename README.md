@@ -42,7 +42,6 @@ The Kinect module takes as input the data sent by the Kinect and gives as output
 
 The controller module takes as input the RPY data sent by the three adapter of the sensors and converts them into linear and angular velocities. Then it computes the weighted average between the velocities available and gives as output the actual velocity that the robot has to take.
 
-
 ### Gazebo Simulation
 
 During the test phase the simulator listen at the topic /cmd_vel and a simulated hrp_automower moves in Gazebo according to the message received.
