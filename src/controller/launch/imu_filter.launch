@@ -1,0 +1,3 @@
+<launch>
+	<node name = "ComplementaryFilterROS" pkg="imu_complementary_filter" type="complementary_filter_node" output = "screen" />
+</launch> 

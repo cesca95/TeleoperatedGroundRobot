@@ -1,14 +1,18 @@
-[submodule "src/rgbdslam_v2"]
-	path = src/rgbdslam_v2
-	url = https://github.com/felixendres/rgbdslam_v2.git
-[submodule "src/mqtt_ros_bridge"]
-	path = src/mqtt_ros_bridge
-	url = https://github.com/EmaroLab/mqtt_ros_bridge.git
-	branch = feature/multiple_subscribe
-[submodule "src/freenect_stack"]
-	path = src/freenect_stack
-	url = https://github.com/EmaroLab/freenect_stack.git
-	branch = master
+[submodule "src/hrp"]
+	path = src/hrp
+	url = https://github.com/HusqvarnaResearch/hrp.git
+[submodule "src/imu_tools"]
+	path = src/imu_tools
+	url = https://github.com/ccny-ros-pkg/imu_tools.git
 [submodule "src/leap_motion"]
 	path = src/leap_motion
 	url = https://github.com/ros-drivers/leap_motion.git
+[submodule "src/mqtt_ros_bridge"]
+	path = src/mqtt_ros_bridge
+	url = https://github.com/EmaroLab/mqtt_ros_bridge.git
+[submodule "src/openni_tracker"]
+	path = src/openni_tracker
+	url = https://github.com/ros-drivers/openni_tracker.git
+[submodule "src/timed_roslaunch"]
+	path = src/timed_roslaunch
+	url = https://github.com/MoriKen254/timed_roslaunch.git

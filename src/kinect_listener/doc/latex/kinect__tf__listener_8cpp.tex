@@ -1,0 +1,83 @@
+\hypertarget{kinect__tf__listener_8cpp}{}\doxysection{/home/sergentementone/\+Documenti/hrp\+\_\+teleoperation/ws/src/kinect\+\_\+listener/src/kinect\+\_\+tf\+\_\+listener.cpp File Reference}
+\label{kinect__tf__listener_8cpp}\index{/home/sergentementone/Documenti/hrp\_teleoperation/ws/src/kinect\_listener/src/kinect\_tf\_listener.cpp@{/home/sergentementone/Documenti/hrp\_teleoperation/ws/src/kinect\_listener/src/kinect\_tf\_listener.cpp}}
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$tf/transform\+\_\+listener.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Transform\+Stamped.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include \char`\"{}my\+\_\+msgs/\+R\+P\+Y.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{kinect__tf__listener_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em these angles are the fields of the message \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{kinect__tf__listener_8cpp_a21cd490f6191f66678f55b4c242a10cf}{yaw}}
+\item 
+double \mbox{\hyperlink{kinect__tf__listener_8cpp_a34c057a0378030db67bd6a129f37d938}{pitch}}
+\item 
+double \mbox{\hyperlink{kinect__tf__listener_8cpp_a1d3228afa3a1d6773954f40c1e519eb9}{roll}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{kinect__tf__listener_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{kinect__tf__listener_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{kinect\_tf\_listener.cpp@{kinect\_tf\_listener.cpp}!main@{main}}
+\index{main@{main}!kinect\_tf\_listener.cpp@{kinect\_tf\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+these angles are the fields of the message 
+
+orientation is the topic on which we publish the angles
+
+10 Hz
+
+define a transformation matrix for the shoulder
+
+define a transformation matrix for the elbow
+
+define a transformation matrix between shoulder and elbow
+
+vertical reference vector to measure the pitch angle
+
+if it is posssible to extract the transformation matrices
+
+transformation matrix between shoulder and kinect
+
+transformation matrix between hand and kinect
+
+vector joining shoulder and elbow
+
+extract the angle formed by the reference vector and the arm\+\_\+vector
+
+default value
+
+shifting of pi/2 according to the values produced by the other sensors
+
+default value
+
+otherwise throw an exception
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{kinect__tf__listener_8cpp_a34c057a0378030db67bd6a129f37d938}\label{kinect__tf__listener_8cpp_a34c057a0378030db67bd6a129f37d938}} 
+\index{kinect\_tf\_listener.cpp@{kinect\_tf\_listener.cpp}!pitch@{pitch}}
+\index{pitch@{pitch}!kinect\_tf\_listener.cpp@{kinect\_tf\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{pitch}{pitch}}
+{\footnotesize\ttfamily double pitch}
+
+\mbox{\Hypertarget{kinect__tf__listener_8cpp_a1d3228afa3a1d6773954f40c1e519eb9}\label{kinect__tf__listener_8cpp_a1d3228afa3a1d6773954f40c1e519eb9}} 
+\index{kinect\_tf\_listener.cpp@{kinect\_tf\_listener.cpp}!roll@{roll}}
+\index{roll@{roll}!kinect\_tf\_listener.cpp@{kinect\_tf\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{roll}{roll}}
+{\footnotesize\ttfamily double roll}
+
+\mbox{\Hypertarget{kinect__tf__listener_8cpp_a21cd490f6191f66678f55b4c242a10cf}\label{kinect__tf__listener_8cpp_a21cd490f6191f66678f55b4c242a10cf}} 
+\index{kinect\_tf\_listener.cpp@{kinect\_tf\_listener.cpp}!yaw@{yaw}}
+\index{yaw@{yaw}!kinect\_tf\_listener.cpp@{kinect\_tf\_listener.cpp}}
+\doxysubsubsection{\texorpdfstring{yaw}{yaw}}
+{\footnotesize\ttfamily double yaw}
+
