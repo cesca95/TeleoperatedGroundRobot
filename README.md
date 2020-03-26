@@ -1,6 +1,6 @@
 # Mobile Robot Teleoperation
 
-This project allows to read the orientation of the right arm estimated by three different sensors: smartwatch, kinect and leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to move it. 
+This project allows to read the orientation of the left arm estimated by three different sensors: smartwatch, kinect and leap motion. The controller collects these data and evaluates the linear and the angular velocity to be sent to the robot in order to move it. 
 
 Forward movements:
  <p align="center">
@@ -36,6 +36,10 @@ This module takes in input images taken by two cameras are analyzed to reconctru
 
 The smartwatch module takes as input the data sent by the smartwatch, filtered by the Complementary Filter Node, and gives as output the corresponding RPY (roll-pitch-yaw) data.
 
+### Kinect Module
+
+The Kinect module takes as input the data sent by the Kinect and gives as output an RPY message. 
+
 ### Controller Module 
 
 The controller module takes as input the RPY data sent by the three adapter of the sensors and converts them into linear and angular velocities. Then it computes the weighted average between the velocities available and gives as output the actual velocity that the robot has to take.
@@ -61,6 +65,8 @@ Hardware prerequisites:
 
 1. LG G6 H870
 
+1. Kinect Sensor v1
+
 1. Husqvarna Automower
 
 Software prerequisites:
@@ -71,7 +77,7 @@ Software prerequisites:
 
 1. Mosquitto on Ubuntu, to download it follow [this guide](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-the-mosquitto-mqtt-messaging-broker-on-ubuntu-16-04).
 
-
+1. To install the required libraries for the Kinect Sensor follow the README in the src/kinect_listener folder.
 
 1. GAZEBO robotic simulator for ROS, to download it follow [this guide](http://gazebosim.org/tutorials?tut=ros_installing). 
 
