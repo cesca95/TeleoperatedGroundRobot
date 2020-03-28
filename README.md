@@ -10,7 +10,7 @@ Forward control:
   <img src="Backward.gif">
  </p>
 
-*Full video of the experiment can be seen at thefollowing [link](https://youtu.be/Zv07ShMY1a4)*
+*Full video of the experiment can be seen at the following [link](https://youtu.be/Zv07ShMY1a4)*
 
 
 
