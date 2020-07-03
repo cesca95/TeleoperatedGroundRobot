@@ -33,10 +33,6 @@ This module takes as input images captured by two cameras to analyze them and ob
 
 The smartwatch module takes as input the data sent by the smartwatch, filtered by the Complementary Filter Node, and gives as output the corresponding RPY (roll-pitch-yaw) data.
 
-### Kinect Module
-
-The Kinect module takes as input the data sent by the Kinect and gives as output an RPY message. 
-
 ### Controller Module 
 
 The controller module takes as input the RPY data sent by the three adapters of the sensors and converts them into linear and angular velocities. Then it computes the weighted average between the velocities available and gives as output the actual velocity that the robot has to take.
