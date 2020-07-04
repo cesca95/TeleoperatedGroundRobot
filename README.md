@@ -4,20 +4,14 @@ ROS-based software architecture to teleoperate a ground robot through the user's
 
 
  <p align="center">
-  <img src="videos/Forward.gif">
+  <img src="simulation/Forward.gif">
  </p>
  
-
-
- <p align="center">
-  <img src="videos/Backward.gif">
- </p>
-
 *Full video of the experiment can be seen at the following [link](https://youtu.be/Zv07ShMY1a4)*.
 
 ## The System’s Architecture
 
-The hardware is composed of a smartwatch, a kinect, a leap motion and the robot we want to move. The modules are written in cpp or in python. 
+The hardware is composed of a smartwatch, a kinect, a leap motion and the robot we want to move. The modules are written in cpp or in python.
 
 ### Description of the Modules
 
