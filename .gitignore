@@ -27,6 +27,9 @@
 *.out
 *.app
 
+# Visual Studio Code
+.vscode
+
 # Eclipse
 .cproject
 .project

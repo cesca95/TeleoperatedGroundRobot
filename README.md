@@ -1,22 +1,23 @@
 # Mobile Robot Teleoperation
 
-Forward control:
+ROS-based software architecture to teleoperate a ground robot through the user's arm. Three sensors are used to detect user movements: Smartwatch, Kinect, Leap motion.
+
+
  <p align="center">
-  <img src="GIF/Forward.gif">
+  <img src="videos/Forward.gif">
  </p>
  
- Backward control:
+
+
  <p align="center">
-  <img src="GIF/Backward.gif">
+  <img src="videos/Backward.gif">
  </p>
 
 *Full video of the experiment can be seen at the following [link](https://youtu.be/Zv07ShMY1a4)*.
 
-
-
 ## The System’s Architecture
 
-The hardware is composed of a smartwatch, a kinect, a leap motion and the robot we want to move. The modules are written in cpp or in python.
+The hardware is composed of a smartwatch, a kinect, a leap motion and the robot we want to move. The modules are written in cpp or in python. 
 
 ### Description of the Modules
 
