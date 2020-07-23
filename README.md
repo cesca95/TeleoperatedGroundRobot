@@ -77,15 +77,15 @@ Software prerequisites:
 
 ### Kinect Setup
 
-1. Follow the [README](https://github.com/cesca95/hrp_teleoperation/blob/master/src/kinect_listener/README.md) in the src/kinect_listener folder
+1. Follow the [README](https://github.com/francesca-cantoni/TeleoperatedGroundRobot/blob/master/src/kinect_listener/README.md) in the src/kinect_listener folder
 
 ### Leap Motion Setup
 
-1. Follow the [README](https://github.com/cesca95/hrp_teleoperation/blob/master/src/leap_teleop/README.md) in the src/leap_teleop folder
+1. Follow the [README](https://github.com/francesca-cantoni/TeleoperatedGroundRobot/blob/master/src/leap_teleop/README.md) in the src/leap_teleop folder
 
 ### Smartwatch Setup
 
-1. Set up mqtt_ros_bridge by following the [README](https://github.com/EmaroLab/mqtt_ros_bridge/blob/9fc463c696403b45a9c36afe6a5cabf9d7522423/README.md) in the src/mqtt_ros_bridge folder and set up the Smartwatch device by following the [README](https://github.com/cesca95/hrp_teleoperation/blob/master/src/smart_watch/README.md) 
+1. Set up mqtt_ros_bridge by following the [README](https://github.com/EmaroLab/mqtt_ros_bridge/blob/9fc463c696403b45a9c36afe6a5cabf9d7522423/README.md) in the src/mqtt_ros_bridge folder and set up the Smartwatch device by following the [README](https://github.com/francesca-cantoni/TeleoperatedGroundRobot/blob/master/src/smart_watch/README.md) 
 
 ### For the simulation on Gazebo (Optional)
 
