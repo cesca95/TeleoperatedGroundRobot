@@ -1,6 +1,6 @@
-# hrp_teleoperation
+# Mobile Robot Teleoperation - Adapter Leap Motion Module
 
-### Description of the Modules
+### Description of the Module
 #### Feature Leap Motion Teleoperation
 This branch is about creating a project to teleoperate a robot using a Leap Motion controller with hand gestures.
 
