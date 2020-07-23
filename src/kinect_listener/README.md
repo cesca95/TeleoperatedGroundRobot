@@ -1,8 +1,8 @@
 # Mobile Robot Teleoperation - Adapter Kinect Module
 
-### Kinetic Sensor Module
+### Kinect Sensor Module
 
-The Kinetic Sensor module takes as input the data sent by the Kinect v1 and gives as output a customized RPY ROS message containing the pitch of the user's arm.
+The Kinect Sensor module takes as input the data sent by the Kinect v1 and gives as output a customized RPY ROS message containing the pitch of the user's arm.
 
 ## Implementation
 
